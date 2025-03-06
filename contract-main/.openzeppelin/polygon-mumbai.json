@@ -1,0 +1,1203 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x0de3abd6C9815fD261d0CAa80720b70177c27fa1",
+    "txHash": "0x34870aad10e0e39545453082639d6300372b0b7e89b806fe1d9e29aeb00bec52"
+  },
+  "proxies": [
+    {
+      "address": "0xaDB9E6E8a41E8a3F470E148fd502d82BE34a8085",
+      "txHash": "0x6663f8da62d16071f234beeaee1f6ed507516dd7f9b0603d5fb243078a259b52",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x71164629667712aA4A0B24f95201c6D9B7617d8d",
+      "txHash": "0xc8ef54281312bc7055f5fa2bd1acb8c7576e094556f02846993c87be91909ab6",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9694AFCA04351ADAd846AC1890ec5497dfEDb5Cd",
+      "txHash": "0x21ec1abddc410071b1161814bccfccfdcc631ab803063a21f91466dceee317f3",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x08278623e344C5B655970D8E4ccec71ce6d30077",
+      "txHash": "0x788971b55f33b33121b7975eb81edc5a8323e3566282b7f1235cce0ff74ae74d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xEf0F8aF84b9eBbD0A52BF9e3d718339e2dab4355",
+      "txHash": "0x64d6a841008d077496cb671c5e5d035e227a4423f0d54dced6eaba0b21108c03",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x492Ff91c4dc20eb5C3bA05662ba7995f7880F314",
+      "txHash": "0x18c42abfb0d1732672671a88d692b29b11bfd1ea75a65e45ed3ee1348fbe928c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "02d3433a8705522e37fbf23727e9032fbbd8461b5a186972df58e10f8610834c": {
+      "address": "0x4ddEc10c84afd2F70DfAE134f826FE50824396b6",
+      "txHash": "0x276275a994902f415195e15a7cb726d26e1be50a8c241360db8146d3a092e61a",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_roles",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)34_storage)",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:62"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:260"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "EbookCore",
+            "src": "contracts/EbookCore.sol:47"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)34_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(RoleData)34_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "6af46d704195b60b136ea9a8e41517cfccf60a07cc8637abab99c883f663e1dc": {
+      "address": "0x7515a3dFD2F174c56e5277985E20306cCAC5FA48",
+      "txHash": "0xf344313e9ee8dd4207de8c5d1661342e520b88e5f54084128589081b93fbe2d0",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "collectionImplementation",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:11"
+          },
+          {
+            "label": "baseURI",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_string_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:12"
+          },
+          {
+            "label": "collections",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:14"
+          },
+          {
+            "label": "isSaltUsed",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:15"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:72"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "f78248b331254ab61aaea218f3500cfcb9cdd61e60b6eaa55a7b1c4bccb6103f": {
+      "address": "0x041C0bF6a175251302F9EeEF679c633b2D7948f6",
+      "txHash": "0x5eeeda5b830445be3fb4ec52acd565a0de439546bd2b1ff0abe26245759a1812",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "platformRoyaltyRatio",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:14"
+          },
+          {
+            "label": "platformRoyalty",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:16"
+          },
+          {
+            "label": "creatorRoyalty",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:17"
+          },
+          {
+            "label": "orders",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_array(t_struct(Order)3632_storage)dyn_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:212"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(Order)3632_storage)dyn_storage": {
+            "label": "struct EbookMarket.Order[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)3632_storage": {
+            "label": "struct EbookMarket.Order",
+            "members": [
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "creator",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "royalty",
+                "type": "t_uint96",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          },
+          "t_uint96": {
+            "label": "uint96",
+            "numberOfBytes": "12"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "4e523a290cf2908ffc94fa5bb28c8093bce0a5a08c00408c06fd4d38fe30bc1f": {
+      "address": "0x7fa8f99F2aC2D169358680c3514Dcf7Fd0266528",
+      "txHash": "0x92b9f7b5721088c8b92a026117f1d2ff0fdf6e22b30e80cc62112d5778d6b4cd",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "collectionImplementation",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:16"
+          },
+          {
+            "label": "baseURI",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_string_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:17"
+          },
+          {
+            "label": "collections",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:19"
+          },
+          {
+            "label": "isSaltUsed",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:20"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:85"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "d973831e1fc8481e5249cfc36a2b212101e1ab868d97d31488790574cfd0c693": {
+      "address": "0x5eee3265533Dd8505e535E1C025720A65cAAE2d6",
+      "txHash": "0x4bd614957af1ed463190f351d4a8c1f3c4c7c94ea23e98e6502e5f2e8a027845",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "platformRoyaltyRatio",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:14"
+          },
+          {
+            "label": "platformRoyalty",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:16"
+          },
+          {
+            "label": "creatorRoyalty",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:17"
+          },
+          {
+            "label": "orders",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_array(t_struct(Order)2131_storage)dyn_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:218"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(Order)2131_storage)dyn_storage": {
+            "label": "struct EbookMarket.Order[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)2131_storage": {
+            "label": "struct EbookMarket.Order",
+            "members": [
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "creator",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "royalty",
+                "type": "t_uint96",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          },
+          "t_uint96": {
+            "label": "uint96",
+            "numberOfBytes": "12"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "9da2e3857b6a5bafc32069e5e1da97b6c421af413b5ffd158a1e15b913763eeb": {
+      "address": "0xF6C1B0a103d67caa684e994510dC70545C44AFfE",
+      "txHash": "0xe5b4ddb47dbc8ccd0c683856334e15fb821f2767bd10107178d08611a85483dc",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "platformRoyaltyRatio",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:14"
+          },
+          {
+            "label": "platformRoyalty",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:16"
+          },
+          {
+            "label": "creatorRoyalty",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:17"
+          },
+          {
+            "label": "orders",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_array(t_struct(Order)2131_storage)dyn_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:218"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(Order)2131_storage)dyn_storage": {
+            "label": "struct EbookMarket.Order[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)2131_storage": {
+            "label": "struct EbookMarket.Order",
+            "members": [
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "creator",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "royalty",
+                "type": "t_uint96",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          },
+          "t_uint96": {
+            "label": "uint96",
+            "numberOfBytes": "12"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "2b042c479b05e29bedb232a075b8678ffe814a337164a9c1ee4a7811f1f04c55": {
+      "address": "0xe9D175B0D520E2eA4523aCBC533BD5b9a72691c2",
+      "txHash": "0x887657036c6b0d4d693dc7cf422640db6ccc8081d1fa0582bf4356434c9490a1",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "platformRoyaltyRatio",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:14"
+          },
+          {
+            "label": "platformRoyalty",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:16"
+          },
+          {
+            "label": "creatorRoyalty",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:17"
+          },
+          {
+            "label": "orders",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_array(t_struct(Order)3655_storage)dyn_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:218"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(Order)3655_storage)dyn_storage": {
+            "label": "struct EbookMarket.Order[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)3655_storage": {
+            "label": "struct EbookMarket.Order",
+            "members": [
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "creator",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "royalty",
+                "type": "t_uint96",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          },
+          "t_uint96": {
+            "label": "uint96",
+            "numberOfBytes": "12"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "b51475935c2be8dd20f36e59ce63f9ea944423a1c5ae55e49883dff68ffb3691": {
+      "address": "0x6a45369e54fDFE459136ff154f4e0B4a8064E6e7",
+      "txHash": "0xc3df270264399d070a7da462154f40e10d6eea73c54b968f949f583bf324d38f",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "collectionImplementation",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:16"
+          },
+          {
+            "label": "baseURI",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_string_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:17"
+          },
+          {
+            "label": "collections",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:19"
+          },
+          {
+            "label": "isSaltUsed",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:20"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookCollectionFactory",
+            "src": "contracts/EbookCollectionFactory.sol:86"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}

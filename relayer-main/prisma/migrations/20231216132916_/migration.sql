@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `User` MODIFY `pkShare` VARCHAR(191) NULL,
+    MODIFY `shareB1` VARCHAR(191) NULL,
+    MODIFY `shareC` VARCHAR(191) NULL,
+    MODIFY `shareB2` VARCHAR(191) NULL;

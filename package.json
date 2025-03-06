@@ -1,0 +1,9 @@
+{
+    "scripts": {
+      "start:all": "concurrently \"cd backend-main && yarn start\" \"cd frontend-main && yarn dev\" \"cd admin-main && yarn start\" \"cd consumer-main && yarn start\" \"cd relayer-main && yarn start\""
+    },
+    "devDependencies": {
+      "concurrently": "^9.1.2"
+    }
+  }
+  

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `TxRecord` MODIFY `functionType` ENUM('BUY', 'MINT', 'TRANSFER', 'BURN', 'SET_ROYALTY_RATIO') NOT NULL;

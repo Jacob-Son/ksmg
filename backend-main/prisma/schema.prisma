@@ -1,0 +1,595 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  bookId        Int         @id @default(autoincrement())
+  maxPageNumber Int
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @default(now()) @updatedAt
+  combinedNft   BurnedNft[]
+  nfts          Nft[]
+  pages         Page[]
+  fullAudioPath String?
+}
+
+model Page {
+  pageId     Int      @id @default(autoincrement())
+  bookId     Int
+  pageNumber Int
+  imagePath  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  book       Book     @relation(fields: [bookId], references: [bookId], onDelete: Cascade)
+
+  @@unique([bookId, pageNumber])
+}
+
+model Note {
+  noteId        Int      @id @default(autoincrement())
+  bookId        Int
+  userAddress   String
+  pageNumber    Int
+  notePositionX Float
+  notePositionY Float
+  noteContent   String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+}
+
+model Auction {
+  auctionId       Int            @id @default(autoincrement())
+  name            String
+  description     String         @default("") @db.VarChar(1000)
+  startPrice      Int
+  estimatedPrice  Int
+  startTime       DateTime       @default(now())
+  endTime         DateTime
+  originEndTime   DateTime
+  detailImagePath String         @default("")
+  totalViewCount  Int            @default(0)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @default(now()) @updatedAt
+  images          AuctionImage[]
+  auctionLikes    AuctionLike[]
+  bids            Bid[]
+  upperBids       UpperBid[]
+}
+
+model AuctionLike {
+  auctionLikeId Int      @id @default(autoincrement())
+  auctionId     Int
+  userAddress   String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  auction       Auction  @relation(fields: [auctionId], references: [auctionId], onDelete: Cascade)
+
+  @@unique([auctionId, userAddress])
+}
+
+model AuctionImage {
+  auctionImageId Int      @id @default(autoincrement())
+  auctionId      Int
+  imagePath      String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
+  auction        Auction  @relation(fields: [auctionId], references: [auctionId], onDelete: Cascade)
+
+  @@index([auctionId], map: "AuctionImage_auctionId_fkey")
+}
+
+model Bid {
+  bidId       Int      @id @default(autoincrement())
+  auctionId   Int
+  userAddress String
+  price       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  auction     Auction  @relation(fields: [auctionId], references: [auctionId], onDelete: Cascade)
+
+  @@unique([auctionId, userAddress, price])
+}
+
+model UpperBid {
+  upperBidId  Int      @id @default(autoincrement())
+  auctionId   Int
+  userAddress String
+  price       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  auction     Auction  @relation(fields: [auctionId], references: [auctionId], onDelete: Cascade)
+
+  @@unique([auctionId, userAddress])
+}
+
+model User {
+  userId          Int               @id @default(autoincrement())
+  userAddress     String?           @unique
+  name            String            @default("")
+  phoneNumber     String?           @default("")
+  email           String            @default("")
+  loginType       LoginType
+  userProfileUrl  String?           @default("")
+  role            UserRole          @default(USER)
+  accountNumber   String            @default("")
+  bankName        String            @default("")
+  creatorName     String            @default("")
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @default(now()) @updatedAt
+  accountOwner    String            @default("")
+  partnerId       String?           @default("")
+  isMasterAdmin   Boolean           @default(false)
+  carts           Cart?
+  combineDelivery CombineDelivery[]
+  combineLog      CombineLog[]
+  likeNfts        LikeNft[]
+  orders          Order[]
+  settle          Settle[]
+  shippingInfo    ShippingInfo?
+  BuyingDelivery  BuyingDelivery[]
+
+  @@unique([email, loginType])
+}
+
+model ShippingInfo {
+  shippingId    Int      @id @default(autoincrement())
+  userAddress   String   @unique
+  name          String
+  phoneNumber   String
+  postCode      String
+  mainAddress   String
+  detailAddress String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  user          User     @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+}
+
+model NftCreateUnit {
+  nftCreateUnitId Int            @id @default(autoincrement())
+  creatorAddress  String
+  imagePath       String
+  name            String
+  category        String
+  theme           String?
+  price           Int
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @default(now()) @updatedAt
+  creatorFee      Int            @default(0)
+  isHidden        Boolean        @default(false)
+  preAudioPath    String?
+  uniqueId        String?        @unique
+  burnedNfts      BurnedNft[]
+  nfts            Nft[]
+  nftAttributes   NftAttribute[]
+}
+
+model Nft {
+  nftId              Int           @id @default(autoincrement())
+  creatorAddress     String
+  ownerAddress       String
+  collectionAddress  String
+  tokenId            String
+  numbering          Int           @default(0)
+  category           String
+  theme              String?
+  name               String
+  description        String        @default("") @db.VarChar(1000)
+  totalViewCount     Int           @default(0)
+  royalty            Int           @default(0)
+  type               NftType       @default(LAZY)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @default(now()) @updatedAt
+  nftImagePath       String
+  nftDetailImagePath String?
+  detailDescription  String?       @db.VarChar(1000)
+  bookId             Int
+  nftCreateUnitId    Int
+  combineMint        CombineMint?
+  likeNfts           LikeNft[]
+  book               Book          @relation(fields: [bookId], references: [bookId])
+  nftCreateUnit      NftCreateUnit @relation(fields: [nftCreateUnitId], references: [nftCreateUnitId], onDelete: Cascade)
+  nftSale            NftSale[]
+  recommend          Recommend[]
+
+  @@unique([collectionAddress, tokenId])
+  @@unique([nftCreateUnitId, numbering])
+  @@index([bookId], map: "Nft_bookId_fkey")
+}
+
+model NftSale {
+  nftSaleId        Int             @id @default(autoincrement())
+  sellerAddress    String
+  buyerAddress     String?
+  price            Int
+  status           SaleStatus      @default(ON_SALE)
+  createdAt        DateTime        @default(now())
+  soldAt           DateTime?
+  confirmAt        DateTime?
+  // refundAt      DateTime?
+  nftId            Int
+  orderId          Int?
+  cartId           Int?
+  platformFee      Int             @default(0)
+  creatorFee       Int             @default(0)
+  txHash           String?
+  nft              Nft             @relation(fields: [nftId], references: [nftId], onDelete: Cascade)
+  order            Order?          @relation(fields: [orderId], references: [orderId])
+  settles          Settle[]
+  cartItem         CartItem[]
+  buyingDelivery   BuyingDelivery?
+  buyingDeliveryId Int?
+
+  @@index([cartId], map: "NftSale_cartId_fkey")
+  @@index([nftId], map: "NftSale_nftId_fkey")
+  @@index([orderId], map: "NftSale_orderId_fkey")
+}
+
+model RefundedNftSale {
+  refundedNftSaleId Int       @id @default(autoincrement())
+  nftSaleId         Int
+  sellerAddress     String
+  buyerAddress      String?
+  price             Int
+  createdAt         DateTime  @default(now())
+  soldAt            DateTime?
+  nftId             Int
+  orderId           Int?
+  platformFee       Int       @default(0)
+  creatorFee        Int       @default(0)
+}
+
+model Settle {
+  settleId        Int          @id @default(autoincrement())
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @default(now()) @updatedAt
+  userAddress     String
+  status          SettleStatus @default(READY)
+  settleNftSaleId Int
+  type            SettleType
+  nftSale         NftSale      @relation(fields: [settleNftSaleId], references: [nftSaleId], onDelete: Cascade)
+  user            User         @relation(fields: [userAddress], references: [userAddress])
+
+  @@unique([settleNftSaleId, type])
+  @@index([userAddress], map: "Settle_userAddress_fkey")
+}
+
+model Cart {
+  cartId      Int        @id @default(autoincrement())
+  userAddress String     @unique
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now()) @updatedAt
+  user        User       @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+  cartItem    CartItem[]
+}
+
+model CartItem {
+  cartItemId Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  cartId     Int
+  cart       Cart     @relation(fields: [cartId], references: [cartId], onDelete: Cascade)
+  nftSaleId  Int
+  nftSale    NftSale  @relation(fields: [nftSaleId], references: [nftSaleId], onDelete: Cascade)
+
+  @@unique([cartId, nftSaleId])
+}
+
+model LikeNft {
+  likeNftId         Int      @id @default(autoincrement())
+  userAddress       String
+  collectionAddress String
+  tokenId           String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now()) @updatedAt
+  nft               Nft      @relation(fields: [collectionAddress, tokenId], references: [collectionAddress, tokenId], onDelete: Cascade)
+  user              User     @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+
+  @@unique([userAddress, tokenId, collectionAddress])
+  @@index([collectionAddress, tokenId], map: "LikeNft_collectionAddress_tokenId_fkey")
+}
+
+model NftAttribute {
+  nftAttributeId  Int           @id @default(autoincrement())
+  key             String
+  value           String
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @default(now()) @updatedAt
+  NftCreateUnitId Int
+  NftCreateUnit   NftCreateUnit @relation(fields: [NftCreateUnitId], references: [nftCreateUnitId], onDelete: Cascade)
+
+  @@unique([NftCreateUnitId, key, value])
+}
+
+model Banner {
+  bannerId        Int     @id @default(autoincrement())
+  imagePath       String
+  mobileImagePath String
+  link            String?
+  order           Int
+}
+
+model Order {
+  orderId     Int         @id @default(autoincrement())
+  impUid      String?     @unique
+  merchantUid String      @unique
+  orderName   String
+  paidAmount  Int
+  userAddress String
+  status      OrderStatus @default(READY)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now()) @updatedAt
+  nftSales    NftSale[]
+  user        User        @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+
+  @@index([userAddress], map: "Order_userAddress_fkey")
+}
+
+model DeletedOrder {
+  deletedOrderId Int         @id @default(autoincrement())
+  impUid         String?     @unique
+  merchantUid    String      @unique
+  orderName      String
+  paidAmount     Int
+  userAddress    String
+  status         OrderStatus
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @default(now()) @updatedAt
+  nftSales       String      @db.VarChar(2000)
+}
+
+model Recommend {
+  recommendId      Int      @id @default(autoincrement())
+  author           String
+  profileImagePath String
+  intro            String
+  description      String
+  backgroundColor  String
+  nftId            Int
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now()) @updatedAt
+  nft              Nft      @relation(fields: [nftId], references: [nftId], onDelete: Cascade)
+
+  @@index([nftId], map: "Recommend_nftId_fkey")
+}
+
+model Event {
+  eventId         Int       @id @default(autoincrement())
+  title           String
+  description     String    @default("") @db.VarChar(1000)
+  imagePath       String
+  detailImagePath String?   @default("")
+  eventType       EventType
+  startDay        DateTime
+  endDay          DateTime
+  externalUrl     String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @default(now()) @updatedAt
+}
+
+model Rank {
+  rankId    Int      @id @default(autoincrement())
+  hotRank   String?
+  bestRank  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Theme {
+  themeId   Int      @id @default(autoincrement())
+  name      String   @unique
+  count     Int      @default(0)
+  like      Int      @default(0)
+  view      Int      @default(0)
+  sale      Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Config {
+  configId  Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model BurnedNft {
+  nftId              Int           @id @default(autoincrement())
+  creatorAddress     String
+  ownerAddress       String
+  collectionAddress  String
+  tokenId            String
+  numbering          Int           @default(0)
+  category           String
+  theme              String?
+  name               String        @unique
+  description        String        @default("") @db.VarChar(1000)
+  totalViewCount     Int           @default(0)
+  royalty            Int           @default(0)
+  type               NftType       @default(LAZY)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @default(now()) @updatedAt
+  nftImagePath       String
+  nftDetailImagePath String?
+  detailDescription  String?       @db.VarChar(1000)
+  bookId             Int
+  nftCreateUnitId    Int
+  combineLogId       Int?
+  book               Book          @relation(fields: [bookId], references: [bookId])
+  combineLog         CombineLog?   @relation(fields: [combineLogId], references: [combineLogId])
+  nftCreateUnit      NftCreateUnit @relation(fields: [nftCreateUnitId], references: [nftCreateUnitId], onDelete: Cascade)
+
+  @@index([bookId], map: "BurnedNft_bookId_fkey")
+  @@index([combineLogId], map: "BurnedNft_combineLogId_fkey")
+  @@index([nftCreateUnitId], map: "BurnedNft_nftCreateUnitId_fkey")
+}
+
+model CombineLog {
+  combineLogId    Int              @id @default(autoincrement())
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @default(now()) @updatedAt
+  userAddress     String
+  burnedNfts      BurnedNft[]
+  combineDelivery CombineDelivery?
+  user            User             @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+  combineMint     CombineMint?
+
+  @@index([userAddress], map: "CombineLog_userAddress_fkey")
+}
+
+model CombineMint {
+  combineMintId Int        @id @default(autoincrement())
+  userAddress   String
+  combineLogId  Int        @unique
+  mintedNftId   Int        @unique
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @default(now()) @updatedAt
+  combineLog    CombineLog @relation(fields: [combineLogId], references: [combineLogId])
+  mintedNft     Nft        @relation(fields: [mintedNftId], references: [nftId], onDelete: Cascade)
+}
+
+model CombineDelivery {
+  combineDeliveryId Int            @id @default(autoincrement())
+  userAddress       String
+  name              String
+  phoneNumber       String
+  postCode          String
+  mainAddress       String
+  detailAddress     String
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @default(now()) @updatedAt
+  status            DeliveryStatus @default(READY)
+  combineLogId      Int            @unique
+  combineLog        CombineLog     @relation(fields: [combineLogId], references: [combineLogId])
+  user              User           @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade)
+
+  @@index([userAddress], map: "CombineDelivery_userAddress_fkey")
+}
+
+model BuyingDelivery {
+  buyingDeliveryId Int                @id @unique
+  userAddress      String
+  name             String
+  phoneNumber      String
+  postCode         String
+  mainAddress      String
+  detailAddress    String
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @default(now()) @updatedAt
+  status           DeliveryStatus     @default(READY)
+  type             BuyingDeliveryType
+  nftSale          NftSale            @relation(fields: [nftSaleId], references: [nftSaleId], onDelete: Cascade)
+  nftSaleId        Int                @unique
+
+  User User? @relation(fields: [userAddress], references: [userAddress])
+}
+
+enum BuyingDeliveryType {
+  COMBINE
+  NOTE
+}
+
+model Notice {
+  noticeId  Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Faq {
+  faqId     Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model HttpLog {
+  httpLogId   Int      @id @default(autoincrement())
+  method      String
+  url         String
+  statusCode  Int
+  userAgent   String
+  ip          String
+  body        String   @db.VarChar(1000)
+  query       String   @db.VarChar(1000)
+  userAddress String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model Log {
+  logId     Int      @id @default(autoincrement())
+  name      String
+  data      String   @db.VarChar(2000)
+  createdAt DateTime @default(now())
+}
+
+model PaymentLog {
+  paymentLogId Int      @id @default(autoincrement())
+  impUid       String
+  merchantUid  String
+  status       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+}
+
+enum UserRole {
+  ADMIN
+  CREATOR
+  USER
+}
+
+enum LoginType {
+  KAKAO
+  GOOGLE
+  NAVER
+}
+
+enum NftType {
+  LAZY
+  NORMAL
+}
+
+enum SaleStatus {
+  ON_SALE
+  TRADING
+  SOLD_OUT
+  CONFIRM
+}
+
+enum SettleType {
+  SELLER
+  CREATOR
+}
+
+enum SettleStatus {
+  READY
+  REQUEST
+  SETTLED
+  REJECT
+}
+
+enum OrderStatus {
+  READY
+  PAID
+  CANCEL
+}
+
+enum EventType {
+  EVENT
+  CULTURE
+}
+
+enum DeliveryStatus {
+  READY
+  CONFIRM
+  DELIVERED
+}

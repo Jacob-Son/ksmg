@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  uid             String        @id @default(uuid())
+  email           String
+  name            String?
+  provider        String
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  walletAddress   String?       @unique
+  lastLoginAt     DateTime      @updatedAt
+  profileImageUrl String?
+  userKeyStoreId  Int?          @unique
+  phoneNumber     String?
+  userKeyStore    UserKeyStore? @relation(fields: [userKeyStoreId], references: [id])
+
+  @@unique([email, provider])
+}
+
+model UserKeyStore {
+  id              Int     @id @default(autoincrement())
+  shareB1         String?
+  shareB2         String?
+  address         String? @unique
+  encryptedShareC String?
+  iv              String?
+  passwordHash    String?
+  salt            String?
+  user            User?
+}
+
+model AdminTxRecord {
+  id           Int          @id @default(autoincrement())
+  status       TxStatus     @default(PENDING)
+  serviceType  ServiceType
+  functionType FunctionType
+  fromAddress  String?
+  toAddress    String?
+  tokenId      Int?
+  relayerId    Int
+  txHash       String       @unique
+  data         Bytes
+  blockNumber  Int?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model UserTxRecord {
+  id            Int          @id @default(autoincrement())
+  status        TxStatus     @default(PENDING)
+  serviceType   ServiceType
+  functionType  FunctionType
+  buyerAddress  String
+  sellerAddress String
+  relayerId     Int
+  txHash        String
+  data          Bytes
+  blockNumber   Int?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  orderType     Int
+  price         Int
+  royalty       Int
+  tokenId       Int
+}
+
+model Relayer {
+  id            Int    @id @default(autoincrement())
+  walletAddress String @unique
+  txCount       Int    @default(0)
+}
+
+enum TxStatus {
+  PENDING
+  SUCCESS
+  FAIL
+}
+
+enum ServiceType {
+  EBOOK
+}
+
+enum FunctionType {
+  BUY
+  MINT
+  TRANSFER
+  BURN
+  SET_ROYALTY_RATIO
+}

@@ -1,0 +1,32 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.nvmrc
+
+.next
+.next/
+.next/*
+
+# production
+/build
+.env
+.env.pickapen
+.env.test
+.env.passedu
+
+# yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# misc
+.DS_Store
+
+/build
+/public/robots.txt
+/public/sitemap*.xml

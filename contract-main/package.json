@@ -1,0 +1,28 @@
+{
+  "name": "ebook-contract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "abi": "npx hardhat export-abi"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomicfoundation/hardhat-verify": "^1.0.4",
+    "@openzeppelin/hardhat-upgrades": "^1.22.1",
+    "hardhat": "^2.22.19",
+    "solidity-coverage": "^0.8.4"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
+    "@openzeppelin/contracts-upgradeable": "^4.3.2",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "hardhat-abi-exporter": "^2.10.1",
+    "hardhat-gas-reporter": "^1.0.9"
+  }
+}
