@@ -13,7 +13,7 @@ export default function SocialNetwork(props: { [key: string]: unknown }) {
       })}
       {...props}
     >
-      <Link
+      {/* <Link
         href="https://www.instagram.com/pickapen_official"
         target="_blank"
         rel="noopener noreferrer"
@@ -60,7 +60,7 @@ export default function SocialNetwork(props: { [key: string]: unknown }) {
           width={31}
           height={32}
         />
-      </Link>
+      </Link> */}
     </div>
   );
 }

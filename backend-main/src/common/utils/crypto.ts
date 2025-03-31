@@ -38,21 +38,57 @@ export const encryptText = async (
   };
 };
 
+// export const decryptText = async ({
+//   prisma,
+//   content,
+// }: {
+//   prisma: PrismaService;
+//   content: string;
+// }): Promise<string> => {
+//   const ivInfo = await prisma.config.findUnique({
+//     where: {
+//       key: 'iv',
+//     },
+//   });
+//   if (!ivInfo) {
+//     throw new Error('해당 유저의 암호화 정보가 없습니다.');
+//   }
+//   const key = (await promisify(scrypt)(password, 'salt', 32)) as Buffer;
+//   const decipher = createDecipheriv(
+//     'aes-256-ctr',
+//     key,
+//     Buffer.from(ivInfo.value, 'hex'),
+//   );
+
+//   const decryptedText = Buffer.concat([
+//     decipher.update(Buffer.from(content, 'hex')),
+//     decipher.final(),
+//   ]);
+
+//   return decryptedText.toString();
+// };
+
 export const decryptText = async ({
   prisma,
   content,
 }: {
   prisma: PrismaService;
-  content: string;
+  content: string | null;
 }): Promise<string> => {
+  if (!content) {
+    return ''; // 또는 null 반환 (사용처에 맞게 변경 가능)
+  }
+
   const ivInfo = await prisma.config.findUnique({
     where: {
       key: 'iv',
     },
   });
+
   if (!ivInfo) {
     throw new Error('해당 유저의 암호화 정보가 없습니다.');
   }
+
   const key = (await promisify(scrypt)(password, 'salt', 32)) as Buffer;
   const decipher = createDecipheriv(
     'aes-256-ctr',

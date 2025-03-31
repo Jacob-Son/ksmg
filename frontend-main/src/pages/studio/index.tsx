@@ -34,6 +34,8 @@ export default function StudioPage() {
   const { studio, refetch } = useStudio(Number(page));
   const { status } = useSession();
   const { user } = useUser();
+  console.log("User Data:", user);
+  console.log("Fetched User:", user);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -48,11 +50,11 @@ export default function StudioPage() {
   }, [status]);
 
   const handleClickCreate = () => {
-    if (!user.creatorName || !user.userProfileUrl) {
-      router.push('/create-profile');
-    } else {
+    // if (!user.creatorName || !user.userProfileUrl) {
+    //   router.push('/create-profile');
+    // } else {
       router.push('/studio/create-ebook');
-    }
+    // }
   };
 
   return (

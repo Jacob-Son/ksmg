@@ -51,6 +51,7 @@ export const HeaderNavSectionCSS = css({
   display: 'flex',
   gap: 30,
   padding: '0',
+  margin: '0 0 0 auto', // 수정된 부분: 왼쪽 마진 auto로 우측 정렬
   listStyle: 'none',
 
   [mediaQuery.down(breakpoints.tb_768)]: { display: 'none' },
@@ -85,6 +86,7 @@ export const HeaderSection2CSS = css({
   display: 'flex',
   gap: 16,
   padding: '0',
+  marginLeft: 'auto', // 수정된 부분: 우측 정렬
   listStyle: 'none',
 
   [mediaQuery.down(breakpoints.tb_768)]: { gap: '12px' },
@@ -137,3 +139,21 @@ export const CartLengthCSS = (layout: HeaderLayoutEnum) =>
       color: color.background.container.black,
     }),
   });
+
+  // 기존 스타일에 추가
+export const GoogleTranslateCSS = css({
+  '.goog-te-combo': {
+    padding: '6px 8px',
+    borderRadius: '4px',
+    border: `1px solid ${color.border.primary}`,
+    backgroundColor: color.background.primary,
+    color: color.text.primary,
+    fontSize: '14px',
+  },
+  '.goog-te-banner-frame': {
+    display: 'none !important',
+  },
+  '.skiptranslate': {
+    display: 'none',
+  },
+});

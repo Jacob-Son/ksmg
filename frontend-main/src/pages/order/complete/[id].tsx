@@ -81,7 +81,7 @@ export default function OrderCompletePage() {
             <p css={ResultHeadDescriptionCSS}>
               고객님의 주문이 완료되었습니다.
               <br />
-              구매하신 책은 나의 서재에서 확인하실 수 있습니다.
+              구매하신 상품은 나의 밭에서 확인하실 수 있습니다.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function OrderCompletePage() {
               }}
               css={GoToButtonCSS}
             >
-              나의 서재 보러가기
+              나의 밭 보러가기
             </Button>
 
             <Button

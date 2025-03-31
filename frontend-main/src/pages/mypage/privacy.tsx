@@ -242,7 +242,7 @@ export default function PrivacyPage() {
         </div>
         <div css={FormWrapperCSS}>
           <p css={FormNameCSS}>이메일</p>
-          <TextField disabled css={css({ marginTop: 10 })} value={email} />
+          {/* <TextField disabled css={css({ marginTop: 10 })} value={email} /> */}
         </div>
         <div css={FormWrapperCSS}>
           <p css={FormNameCSS}>필명</p>
@@ -267,7 +267,7 @@ export default function PrivacyPage() {
               type="string"
               maxLength={3}
               value={phoneNumber.first}
-              disabled
+              // disabled
               onChange={(e) => {
                 const regex = /^[0-9]*$/;
                 if (!regex.test(e.target.value)) return;
@@ -278,7 +278,7 @@ export default function PrivacyPage() {
               type="string"
               maxLength={4}
               value={phoneNumber.second}
-              disabled
+              // disabled
               onChange={(e) => {
                 const regex = /^[0-9]*$/;
                 if (!regex.test(e.target.value)) return;
@@ -289,7 +289,7 @@ export default function PrivacyPage() {
               type="string"
               maxLength={4}
               value={phoneNumber.third}
-              disabled
+              // disabled
               onChange={(e) => {
                 const regex = /^[0-9]*$/;
                 if (!regex.test(e.target.value)) return;
@@ -302,7 +302,7 @@ export default function PrivacyPage() {
         <div css={ButtonWrapperCSS}>
           <Button
             onClick={handleSave}
-            disabled={!isSaveActive}
+            // disabled={!isSaveActive}
             layout="contained"
             css={ButtonCSS}
           >

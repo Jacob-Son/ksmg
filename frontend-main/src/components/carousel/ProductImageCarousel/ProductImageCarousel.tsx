@@ -50,8 +50,10 @@ export default function ProductImageCarousel(
             <Image
               src={image.src}
               alt={`${image.alt} ${index}`}
-              fill
+              width={400}
+              height={400} 
               style={{ objectFit: 'cover' }}
+
             />
           </div>
         ))}

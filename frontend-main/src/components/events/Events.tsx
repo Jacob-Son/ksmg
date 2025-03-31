@@ -48,7 +48,14 @@ export default function Events(props: IEventsProps) {
         >
           <div css={ImageAndTagContainerCSS}>
             <div css={ImageWrapperCSS}>
-              <Image src={x.imagePath} alt={x.imagePath} fill />
+              {/* <Image src={x.imagePath} alt={x.imagePath} fill /> */}
+              <Image 
+              src={x.imagePath} 
+              alt={x.imagePath} 
+              width={700} // ✅ 너비 600px 적용
+              height={200} // ✅ 높이 200px 적용
+              objectFit="relative" // ✅ 비율 유지하면서 꽉 채우기
+            />
             </div>
             <div css={TagLayerCSS(!dayjs(x.endDay).isAfter(new Date()))}>
               {dayjs(x.endDay).isAfter(new Date()) ? (

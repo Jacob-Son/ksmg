@@ -11,8 +11,8 @@ export const NoticesColumnCSS = css({
 });
 
 export const NoticeItemCSS = css({
-  maxWidth: 327,
-  padding: '10px 14px 10px 10px',
+  // maxWidth: 600,
+  padding: '10px 0px 10px 0px',
   display: 'flex',
   boxSizing: 'border-box',
   textDecoration: 'none',
@@ -24,7 +24,7 @@ export const NoticeItemCSS = css({
   '& img': {
     borderRadius: 3,
     background: color.skeleton,
-    marginRight: 20,
+    // marginRight: 20,
   },
 });
 

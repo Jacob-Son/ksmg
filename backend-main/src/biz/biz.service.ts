@@ -91,7 +91,7 @@ export class BizService {
         countryCode: '82',
         recipient: phoneNumber,
         senderKey: this.senderKey,
-        message: `[${name}]이 구매완료되었습니다.\n구매된 책은 '나의 서재'에서 확인하실 수 있습니다.\n* 구매한지 7일이 경과하고 디지털도서를 열람하였을 경우에는\n구매확정이 되어 환불이 불가능합니다.\n* 재판매는 구매확정이 된 후 가능합니다.`,
+        message: `[${name}]이 구매완료되었습니다.\n구매된 상품은 '나의밭'에서 확인하실 수 있습니다.\n* 구매한지 7일이 경과하고 상품을 개봉하였을 경우에는\n구매확정이 되어 환불이 불가능합니다.`,
         tmpltCode: this.templateRefix + '_001',
         resMethod: 'PUSH',
       };

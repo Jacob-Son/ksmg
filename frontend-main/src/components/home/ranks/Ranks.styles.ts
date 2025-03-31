@@ -3,6 +3,7 @@ import { color } from 'src/styles/colors';
 import { mq } from 'src/styles/mediaQuery';
 
 export const RanksContainerCSS = css({
+  marginTop: 20, // ✅ 위쪽 간격 추가
   display: 'flex',
   flexDirection: 'column',
   padding: '0 24px',

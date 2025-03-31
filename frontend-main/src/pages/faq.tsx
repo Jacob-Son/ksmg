@@ -32,7 +32,7 @@ export default function FaqPage() {
         {!isPending && (
           <Supports
             title="FAQ"
-            description="만약 원하시는 답변이 FAQ에 없다면, 피카펜 카카오톡 채널을 통해 문의해 주세요."
+            description="만약 원하시는 답변이 FAQ에 없다면, KSMG 카카오톡 채널을 통해 문의해 주세요."
             returnUrl="/faq"
             showDate={false}
             data={faqList}

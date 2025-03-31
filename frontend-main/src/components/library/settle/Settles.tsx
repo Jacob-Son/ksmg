@@ -72,20 +72,20 @@ export default function Settles({ refetchNft }: { refetchNft: () => void }) {
           <p css={HeadCSS}>거래 내역</p>
 
           <div>
-            <Button
+            {/* <Button
               layout={type === SettleTabEnum.BUY ? 'contained' : 'outlined'}
               onClick={() => setType(SettleTabEnum.BUY)}
               css={ButtonCSS}
             >
               구매
-            </Button>
-            <Button
+            </Button> */}
+            {/* <Button
               layout={type === SettleTabEnum.SELL ? 'contained' : 'outlined'}
               onClick={() => setType(SettleTabEnum.SELL)}
               css={ButtonCSS}
             >
               판매
-            </Button>
+            </Button> */}
           </div>
         </div>
 
@@ -149,12 +149,12 @@ export default function Settles({ refetchNft }: { refetchNft: () => void }) {
           </>
         ) : (
           <div css={NotFoundBodyCSS}>
-            <Image
+            {/* <Image
               alt="community"
               src="/imgs/library/img_settle_404.svg"
               width={isMobile ? 214 : 316}
               height={isMobile ? 113.8 : 169}
-            />
+            /> */}
             <p>
               {type === SettleTabEnum.BUY
                 ? '구매 목록이 없습니다.'

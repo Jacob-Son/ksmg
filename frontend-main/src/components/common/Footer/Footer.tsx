@@ -46,20 +46,20 @@ export default function Footer() {
   );
   const businessInfo = (
     <p css={TextCSS}>
-      (주)한국장인인삼 대표자 : 김태현
+      (주)케이에스엠지 대표자 : 고영매
       <br />
-      연락처: 010-3676-0111
+      연락처: 010-8666-3555
       <br />
       주소: 08390 서울 구로구 디지털로32길 30 코오롱디지털타워빌란트1차 1210호
       <br />
-      사업자번호: 847-87-02693
+      사업자번호: 302-81-31179
       <br />
       통신판매업신고번호: 제2022-경기안성-0293호
     </p>
   );
   const warning = (
     <p css={WarningCSS}>
-      일부 상품의 경우 (주)한국장인인삼 통신판매의 당사자가 아닌 통신판매중개자로서
+      일부 상품의 경우 (주)케이에스엠지 통신판매의 당사자가 아닌 통신판매중개자로서
       상품, 상품정보, 거래에 대한 책임이 제한될 수 있으므로, 각 상품 페이지에서
       구체적인 내용을 확인하시기 바랍니다.
     </p>
@@ -72,7 +72,7 @@ export default function Footer() {
         width={20}
         height={21}
       />
-      <p>(주)한국장인인삼 Co.,Ltd. All Rights Reserved.</p>
+      <p>(주)케이에스엠지 Co.,Ltd. All Rights Reserved.</p>
     </div>
   );
 
@@ -104,8 +104,8 @@ export default function Footer() {
                   및 공휴일 제외)
                 </p>
                 <div css={CustomerCenterLinksFlexCSS}>
-                  <Link href="https://pf.kakao.com/_RgxcPG">1:1 문의</Link>
-                  <Link href="/faq">FAQ</Link>
+                  {/* <Link href="https://pf.kakao.com/_RgxcPG">1:1 문의</Link> */}
+                  {/* <Link href="/faq">FAQ</Link> */}
                 </div>
               </div>
               <SocialNetwork />

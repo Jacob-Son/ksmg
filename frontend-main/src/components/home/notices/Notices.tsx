@@ -26,7 +26,7 @@ export default function Notices({
 }: INoticesProps): React.ReactElement {
   return (
     <div css={css({ flex: 1, width: '100%' })}>
-      <TitleRow name={name} sort="최신 순" css={css({ padding: '12px 0' })} />
+      <TitleRow name={name} css={css({ padding: '12px 0' })} />
       <div css={NoticesColumnCSS}>
         {data.map((notice) => (
           <Link
@@ -37,10 +37,10 @@ export default function Notices({
             <Image
               alt="notice image"
               src={notice.imagePath}
-              width={50}
-              height={50}
+              width={700}
+              height={200}
             />
-            <div>
+            {/* <div>
               <div css={css({ display: 'flex', alignItems: 'center', gap: 8 })}>
                 <p css={NoticeItemTitleCSS}>{notice.title}</p>
                 <p css={NoticeItemDateCSS}>
@@ -48,7 +48,7 @@ export default function Notices({
                 </p>
               </div>
               <p css={NoticeItemDescriptionCSS}>{notice.description}</p>
-            </div>
+            </div> */}
           </Link>
         ))}
       </div>

@@ -32,7 +32,7 @@
     "@types/node": "^20.8.10",
     "@types/react": "^18.2.34",
     "eslint": "^8.53.0",
-    "eslint-config-next": "14.0.1",
+    "eslint-config-next": "^15.2.1",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
@@ -51,7 +51,7 @@
     "dev:test": "env-cmd -f .env.test yarn dev",
     "dev:pickapen": "env-cmd -f .env.pickapen yarn dev",
     "dev:passedu": "env-cmd -f .env.passedu yarn dev",
-    "dev:ksmg": "env-cmd -f .env.ksmg yarn dev"
+    "dev:(주)케이에스엠지": "env-cmd -f .env.(주)케이에스엠지 yarn dev"
   },
   "author": "",
   "license": "ISC",

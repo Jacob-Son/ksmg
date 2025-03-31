@@ -40,11 +40,11 @@ export enum LibraryTabEnum {
 
 export const libraryTabs = [
   {
-    name: '나의 책장',
+    name: '상품',
     value: LibraryTabEnum.LIBRARY,
   },
   {
-    name: '찜한 작품',
+    name: '찜한 상품',
     value: LibraryTabEnum.LIKES,
   },
   {
@@ -52,7 +52,7 @@ export const libraryTabs = [
     value: LibraryTabEnum.COMMUNITY,
   },
   {
-    name: '거래 내역',
+    name: '구매 내역',
     value: LibraryTabEnum.SETTLE,
   },
 ];
@@ -116,22 +116,22 @@ function Library() {
         </div>
         {tab === LibraryTabEnum.LIBRARY && (
           <Products
-            name="나의 책장"
+            name="나의 상품"
             data={ownedNfts}
             type={LibraryTabEnum.LIBRARY}
             loading={isOwnedNftsLoading}
             notFoundLayout={
               <>
-                <Image
+                {/* <Image
                   alt="not found"
                   src="/imgs/img_404.svg"
                   width={200}
                   height={231}
-                />
+                /> */}
                 <p>
-                  아직 구매하신 작품이 없습니다.
+                  아직 구매하신 상품이 없습니다.
                   <br />
-                  피카펜을 둘러보고 마음에 드는 작품을
+                  한국장인인삼을 둘러보고 마음에 드는 상품을
                   <br />
                   찾아보실래요?
                 </p>
@@ -141,23 +141,23 @@ function Library() {
         )}
         {tab === LibraryTabEnum.LIKES && (
           <Products
-            name="찜한 작품"
+            name="찜한 상품"
             data={likeNfts}
             type={LibraryTabEnum.LIKES}
             loading={isLikeNftsLoading}
             notFoundLayout={
               <>
-                <Image
+                {/* <Image
                   alt="not found"
                   src="/imgs/library/img_404.svg"
                   width={290}
                   height={208}
                   css={css({ marginTop: 18, marginBottom: 21 })}
-                />
+                /> */}
                 <p>
-                  아직 찜한 작품이 없습니다.
+                  아직 찜한 상품이 없습니다.
                   <br />
-                  마음에 드는 작품에 하트를 눌러보세요.
+                  마음에 드는 상품에 하트를 눌러보세요.
                 </p>
               </>
             }
@@ -187,7 +187,7 @@ export const ProfileAndTabsSectionCSS = css({
   background: color.background.container.black,
 
   '& > div': {
-    padding: '40px 30px 12px 30px',
+    padding: '12px 30px 12px 30px',
     gap: 40,
     display: 'flex',
     flexDirection: 'column',

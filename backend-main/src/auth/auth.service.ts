@@ -18,16 +18,102 @@ export class AuthService {
       return {
         userAddress: userResult.userAddress,
         name: userResult.name,
-        phoneNumber: userResult.phoneNumber,
         email: userResult.email,
         loginType: userResult.loginType,
         profileImageUrl: userResult.profileImageUrl,
+        phoneNumber: userResult.phoneNumber ?? null,
       };
     } catch (e) {
       console.log(e);
       throw new Error('유저 정보를 가져오는데 실패했습니다.');
     }
   }
+
+  // async signIn(
+  //   name: string,
+  //   email: string,
+  //   loginType: LoginType,
+  //   profileImageUrl: string,
+  // ): Promise<{
+  //   userInfo: any;
+  //   isNewUser: boolean;
+  //   isNeedPassword?: boolean;
+  // }> {
+  //   try {
+  //     const checkUser = await this.prisma.user.findUnique({
+  //       where: {
+  //         email_loginType: {
+  //           email,
+  //           loginType,
+  //         },
+  //       },
+  //       select: {
+  //         name: true,
+  //         email: true,
+  //         loginType: true,
+  //         userProfileUrl: true,
+  //         userAddress: true,
+  //         accountNumber: true,
+  //       },
+  //     });
+
+  //     if (checkUser) {
+  //       const userName = checkUser.name
+  //         ? await decryptText({ prisma: this.prisma, content: checkUser.name })
+  //         : null;
+  //       const accountNumber = checkUser.accountNumber
+  //         ? await decryptText({
+  //             prisma: this.prisma,
+  //             content: checkUser.accountNumber,
+  //           })
+  //         : null;
+
+  //       if (!checkUser.userAddress) {
+  //         return {
+  //           userInfo: {
+  //             ...checkUser,
+  //             name: userName,
+  //             accountNumber,
+  //           },
+  //           isNeedPassword: true,
+  //           isNewUser: false,
+  //         };
+  //       }
+  //       return {
+  //         userInfo: {
+  //           ...checkUser,
+  //           name: userName,
+  //           accountNumber,
+  //         },
+  //         isNewUser: false,
+  //       };
+  //     }
+
+  //     const encryptedName = name
+  //       ? (await encryptText(this.prisma, name)).content
+  //       : '';
+  //     const user = await this.prisma.user.create({
+  //       data: {
+  //         name: encryptedName,
+  //         email,
+  //         loginType,
+  //         userProfileUrl: profileImageUrl,
+  //         accountOwner: name,
+  //       },
+  //     });
+  //     return {
+  //       userInfo: user,
+  //       isNewUser: true,
+  //     };
+  //   } catch (e) {
+  //     console.log('Error in signIn:', e);
+  //     throw new Error('로그인 처리 중 오류 발생');
+  //     return {
+  //       userInfo: null,
+  //       isNewUser: false,
+  //     };
+  //   }
+  // }
 
   async signIn(
     name: string,
@@ -47,16 +133,19 @@ export class AuthService {
             loginType,
           },
         },
+        select: {
+          name: true,
+          email: true,
+          loginType: true,
+          userProfileUrl: true,
+          userAddress: true,
+          accountNumber: true,
+        },
       });
+
       if (checkUser) {
         const userName = checkUser.name
           ? await decryptText({ prisma: this.prisma, content: checkUser.name })
-          : null;
-        const userPhoneNumber = checkUser.phoneNumber
-          ? await decryptText({
-              prisma: this.prisma,
-              content: checkUser.phoneNumber,
-            })
           : null;
         const accountNumber = checkUser.accountNumber
           ? await decryptText({
@@ -65,28 +154,17 @@ export class AuthService {
             })
           : null;
 
-        if (!checkUser.userAddress) {
-          return {
-            userInfo: {
-              ...checkUser,
-              name: userName,
-              phoneNumber: userPhoneNumber,
-              accountNumber,
-            },
-            isNeedPassword: true,
-            isNewUser: false,
-          };
-        }
         return {
           userInfo: {
             ...checkUser,
             name: userName,
-            phoneNumber: userPhoneNumber,
             accountNumber,
           },
           isNewUser: false,
+          isNeedPassword: !checkUser.userAddress,
         };
       }
+
       const encryptedName = name
         ? (await encryptText(this.prisma, name)).content
         : '';
@@ -99,16 +177,14 @@ export class AuthService {
           accountOwner: name,
         },
       });
+
       return {
         userInfo: user,
         isNewUser: true,
       };
     } catch (e) {
-      console.log(e);
-      return {
-        userInfo: null,
-        isNewUser: false,
-      };
+      console.error('Error in signIn:', e);
+      throw new Error('로그인 처리 중 오류 발생');
     }
   }
 
@@ -116,21 +192,25 @@ export class AuthService {
     email: string,
     loginType: LoginType,
     password: string,
-    phoneNumber: string,
+    // phoneNumber: string,
     shippingInfo: Pick<
       ShippingInfo,
-      'name' | 'phoneNumber' | 'postCode' | 'mainAddress' | 'detailAddress'
+      'name' | 'postCode' | 'mainAddress' | 'detailAddress'
     >,
     token: string,
   ) {
     try {
+      const existingUser = await this.prisma.user.findUnique({
+        where: { email_loginType: { email, loginType } },
+        select: { phoneNumber: true },
+      });
       const userAddress = await this.walletService.registerWallet(
         token,
         password,
-        phoneNumber,
+        existingUser?.phoneNumber ?? null,
       );
-      const _phoneNumber = (await encryptText(this.prisma, phoneNumber))
-        .content;
+      // const _phoneNumber = (await encryptText(this.prisma, phoneNumber))
+      //   .content;
       await this.prisma.user.update({
         where: {
           email_loginType: {
@@ -140,7 +220,7 @@ export class AuthService {
         },
         data: {
           userAddress,
-          phoneNumber: _phoneNumber,
+          // phoneNumber: _phoneNumber,
           shippingInfo: {
             create: shippingInfo,
           },
@@ -193,16 +273,16 @@ export class AuthService {
     }
   }
 
-  async sendCertificationNumber(
-    phoneNumber: string,
-    code: string,
-  ): Promise<boolean> {
-    try {
-      const res = await this.bizService.sendAuthCode(phoneNumber, { code });
-      return res;
-    } catch (e) {
-      console.log(e);
-      return false;
-    }
-  }
+  // async sendCertificationNumber(
+  //   phoneNumber: string,
+  //   code: string,
+  // ): Promise<boolean> {
+  //   try {
+  //     const res = await this.bizService.sendAuthCode(phoneNumber, { code });
+  //     return res;
+  //   } catch (e) {
+  //     console.log(e);
+  //     return false;
+  //   }
+  // }
 }

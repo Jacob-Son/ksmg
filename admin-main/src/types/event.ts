@@ -1,6 +1,6 @@
 export enum EventType {
-  EVENT = 'EVENT',
-  CULURE = 'CULURE',
+  EVENT = "EVENT",
+  CULURE = "SALE",
 }
 
 export type IEvent = {

@@ -78,7 +78,7 @@ function app({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
       <Head>
-        <meta property="og:title" content="pickapen" />
+        <meta property="og:title" content="(주)케이에스엠지" />
         {/* mobile viewport 고정 */}
         <meta
           name="viewport"

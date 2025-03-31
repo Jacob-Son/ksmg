@@ -43,6 +43,7 @@ import { FaqsModule } from './faqs/faqs.module';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
+import { TranslationModule } from './translation/translation.module';
 
 @Module({
   imports: [
@@ -73,6 +74,7 @@ import { LoggerMiddleware } from './middlewares/logger.middleware';
     NoticesModule,
     FaqsModule,
     PrismaModule,
+    TranslationModule,
   ],
   controllers: [
     AppController,

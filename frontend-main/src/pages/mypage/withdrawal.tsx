@@ -77,7 +77,7 @@ export default function WithdrawalPage() {
         <SupportsHead
           title="회원탈퇴"
           description={
-            '고객님 피카펜 이용에 불편함이 있으셨나요?\n고객센터에 카카오톡 채널에 불만사항을 남겨주시면\n친절히 응대해 드리겠습니다.'
+            '고객님 KSMG 이용에 불편함이 있으셨나요?\n고객센터에 카카오톡 채널에 불만사항을 남겨주시면\n친절히 응대해 드리겠습니다.'
           }
           returnUrl="/mypage/withdrawal"
         />

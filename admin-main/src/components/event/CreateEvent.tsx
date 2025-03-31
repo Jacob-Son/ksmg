@@ -219,7 +219,7 @@ function CreateEvent({
           {...register("eventType")}
         >
           <MenuItem value={EventType.EVENT}>이벤트</MenuItem>
-          <MenuItem value={EventType.CULTURE}>문화행사</MenuItem>
+          <MenuItem value={EventType.SALE}>할인행사</MenuItem>
         </Select>
       </FormControl>
       <Box sx={{ display: "flex", flexDirection: "row", height: 40 }} />
@@ -249,8 +249,8 @@ function CreateEvent({
         }}
       />
       <FormHelperText>
-        썸네일 이미지입니다. 권장 크기는 818x818입니다. 최대 5MB까지 업로드
-        가능합니다.
+        썸네일 이미지입니다. 권장 크기는 600x200의 가로형 이미지입니다. 최대
+        5MB까지 업로드 가능합니다.
       </FormHelperText>
       <Box sx={{ display: "flex", flexDirection: "row", height: 20 }} />
       {imagesPreview && (

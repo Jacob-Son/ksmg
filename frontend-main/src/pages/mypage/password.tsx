@@ -180,7 +180,7 @@ export default function ChangePasswordPage() {
             <SupportsHead
               title={'비밀번호 설정이 \n완료되었습니다.'}
               description={
-                'PICKAPEN에 로그인하거나 \n작품을 구매 하기 위해서는 비밀번호가 필요합니다. \n비밀번호 설정 단계를 진행해 주세요.'
+                '(주)케이에스엠지에 로그인하거나 \n작품을 구매 하기 위해서는 비밀번호가 필요합니다. \n비밀번호 설정 단계를 진행해 주세요.'
               }
             />
 

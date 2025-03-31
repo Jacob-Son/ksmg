@@ -229,25 +229,81 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [status]);
 
+  // 다시 수정 시작
   React.useEffect(() => {
-    if (!session) return;
-    sessionStorage.setItem("accessToken", (session as any).accessToken);
-    API.Auth.signIn((session as any).accessToken).then((res: any) => {
-      if (res.success) {
-        if (res.data?.userInfo.role !== "ADMIN") {
+    let isMounted = true; // ✅ 컴포넌트가 언마운트될 경우 요청 취소
+
+    if (!session?.accessToken) return;
+
+    sessionStorage.setItem("accessToken", session.accessToken);
+
+    API.Auth.signIn(session.accessToken)
+      .then((res: any) => {
+        if (!isMounted) return; // ✅ 컴포넌트가 언마운트되었으면 실행 중단
+
+        console.log("API 응답:", res);
+        console.log("🛠 userInfo 데이터:", res.data?.userInfo);
+
+        if (!res.success) {
+          console.error("🚨 로그인 API 요청 실패:", res);
+          alert("로그인 요청이 실패했습니다. 관리자에게 문의하세요.");
+          setRealStatus("unauthenticated");
+          signOut();
+          return;
+        }
+
+        if (!res.data?.userInfo) {
+          console.error("⚠ userInfo가 없습니다. API 응답을 확인하세요.");
+          alert("사용자 정보가 없습니다. 관리자에게 문의하세요.");
+          setRealStatus("unauthenticated");
+          signOut();
+          return;
+        }
+
+        const userRole = res.data?.userInfo.role ?? "ADMIN"; // ✅ 역할이 없을 경우 기본값 설정
+        console.log("사용자 역할:", userRole);
+
+        if (userRole !== "ADMIN") {
           alert("관리자만 접근 가능합니다.");
           signOut();
           return;
         }
+
         setUser(res.data?.userInfo ?? null);
         setRealStatus("authenticated");
-      } else {
-        console.log(res.error);
+      })
+      .catch((error) => {
+        if (!isMounted) return;
+        console.error("🚨 API 요청 중 오류 발생:", error);
+        alert("서버 오류로 인해 로그인할 수 없습니다.");
         setRealStatus("unauthenticated");
         signOut();
-      }
-    });
+      });
+
+    return () => {
+      isMounted = false; // ✅ Cleanup: 언마운트 시 요청 중단
+    };
   }, [session]);
+
+  // React.useEffect(() => {
+  //   if (!session) return;
+  //   sessionStorage.setItem("accessToken", (session as any).accessToken);
+  //   API.Auth.signIn((session as any).accessToken).then((res: any) => {
+  //     if (res.success) {
+  //       if (res.data?.userInfo.role !== "ADMIN") {
+  //         alert("관리자만 접근 가능합니다.");
+  //         signOut();
+  //         return;
+  //       }
+  //       setUser(res.data?.userInfo ?? null);
+  //       setRealStatus("authenticated");
+  //     } else {
+  //       console.log(res.error);
+  //       setRealStatus("unauthenticated");
+  //       signOut();
+  //     }
+  //   });
+  // }, [session]);
 
   if (realStatus === "loading") return <div>권한 확인중입니다...</div>;
   if (realStatus === "unauthenticated") return <LoginPage />;

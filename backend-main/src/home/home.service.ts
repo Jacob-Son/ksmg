@@ -133,7 +133,7 @@ export class HomeService {
     try {
       const cultureEvent = await this.prisma.event.findMany({
         where: {
-          eventType: EventType.CULTURE,
+          eventType: EventType.SALE,
           startDay: {
             lte: new Date(),
           },

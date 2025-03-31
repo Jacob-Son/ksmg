@@ -19,7 +19,7 @@ export default function RelatedProducts({ name, data }: IRelatedProductsProps) {
   return (
     <div>
       <TitleRow
-        name={`같은 ${name}의 다른 작품`}
+        name={`같은 카테고리 다른 상품`}
         css={css({
           [mq.mobile]: { padding: '0 20px' },
         })}

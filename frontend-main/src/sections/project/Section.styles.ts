@@ -6,7 +6,7 @@ export const SectionContainerCSS = css({
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '0 110px',
+  padding: '0 100px',
   boxSizing: 'border-box',
 
   [mq.tablet]: {
@@ -16,3 +16,8 @@ export const SectionContainerCSS = css({
     padding: '0 20px',
   },
 });
+
+export const ChapterTextStyleCSS = `
+  font-size: 16px;
+  color: #333;
+`;

@@ -35,7 +35,7 @@ const config: HardhatUserConfig = {
       gasPrice: 30000000000, // 25 Gwei (최소 요구되는 가스 가격 설정)
     },
     polygon: {
-      url: "https://polygon-mainnet.g.alchemy.com/v2/YOUR_ALCHEMY_API_KEY",
+      url: "https://polygon-mainnet.g.alchemy.com/v2/u45a_57odIZZVREOKWbB8U3d4TNxQwWY",
       accounts: [process.env.EBOOK_DEPLOYER_PK || ""],
       chainId: 137,
     },

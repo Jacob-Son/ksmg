@@ -76,7 +76,9 @@ export default function Ranks({ name, data }: IRanksProps) {
                 key={`sort_${opt.value}`}
                 type="button"
                 aria-current={opt.value === sort}
-                onClick={() => setSort(opt.value)}
+                onClick={() => {
+                  console.log(`🔄 Sorting changed to: ${opt.value}`); // ✅ Debug Log 추가
+                  setSort(opt.value)}}
               >
                 {opt.label}
               </button>
@@ -94,7 +96,7 @@ export default function Ranks({ name, data }: IRanksProps) {
           >
             <p css={RankItemRankCSS}>{i + 1}</p>
             <p css={RankItemNameCSS}>{item.theme}</p>
-            <p css={RankItemProductCountCSS}>총 작품 수 {item.count}개</p>
+            <p css={RankItemProductCountCSS}>총 상품 수 {item.count}개</p>
           </Link>
         ))}
       </div>

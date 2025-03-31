@@ -6,12 +6,13 @@ import { animationSettings } from './Banners.constants';
 export const BannerContainerCSS = css({
   position: 'relative',
   width: '100%',
-  height: 'auto',
+  height: '100%', // ✅ 높이를 100%로 설정하여 비율 유지
   aspectRatio: '1440 / 600',
   overflow: 'hidden',
 
   [mq.mobile]: {
     aspectRatio: '390 / 510',
+    position: 'contain',
   },
 });
 export const BannerImagesWrapperCSS = css({
@@ -24,7 +25,7 @@ export const BannerSkeletonCSS = css({
   width: '100%',
   height: 'auto',
   aspectRatio: '1440 / 600',
-  background: color.background.container.image,
+  // background: color.background.container.image,
 
   [mq.mobile]: {
     aspectRatio: '390 / 510',
@@ -37,7 +38,7 @@ export const BannerItemCSS = css({
   aspectRatio: '1440 / 600',
   flexShrink: 0,
   position: 'relative',
-  background: color.background.container.image,
+  // background: color.background.container.image,
 
   [mq.mobile]: {
     aspectRatio: '390 / 510',
@@ -52,12 +53,13 @@ export const BannerImageCSS = css({
 
   [mq.mobile]: {
     aspectRatio: '390 / 510',
+    objectFit: 'contain',
   },
 });
 
 export const DotsContainerCSS = css({
   position: 'absolute',
-  bottom: 30,
+  bottom: 80,
   left: '50%',
   transform: 'translateX(-50%)',
 });

@@ -18,13 +18,14 @@ export class UserApi {
     searchType: string,
     searchKeyword: string
   ) {
-    const res = this.axios.get("/users", {
+    const res = await this.axios.get("/users", {
       params: {
         page: page ?? 1,
         searchType,
         searchKeyword,
       },
     });
+    console.log("📢 유저 API 원본 응답:", res.data);
     return (await res).data;
   }
 

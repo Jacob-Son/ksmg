@@ -73,6 +73,8 @@ function UserList() {
         (res) => res.data
       ),
   });
+  console.log("📢 유저 목록 API 응답:", userList);
+  console.log("📢 API 요청 데이터:", { page, searchType, searchKeyword });
   const [rows, setRows] = React.useState<any[]>([]);
 
   const columns = [
@@ -122,14 +124,16 @@ function UserList() {
   ];
 
   React.useEffect(() => {
+    console.log("📢 userList 전체 데이터:", userList); // 전체 userList 확인
+
     if (userList) {
       if (userList.users === undefined) return;
       const _rows = userList.users?.map((user: User, idx: number) => {
         return {
           id: `${user.email}_${user.loginType}`,
           name: user.name,
-          phoneNumber: user.phoneNumber,
-          role: user.role,
+          phoneNumber: user.phoneNumber ?? "",
+          role: user.role ?? "USER",
           userAddress: user.userAddress,
           loginType: user.loginType,
           creatorName: user.creatorName,
@@ -158,7 +162,7 @@ function UserList() {
           <MenuItem value={"name"}>Name</MenuItem>
           <MenuItem value={"email"}>Email</MenuItem>
           <MenuItem value={"userAddress"}>Useraddress</MenuItem>
-          <MenuItem value={"phoneNumber"}>phoneNumber</MenuItem>
+          {/* <MenuItem value={"phoneNumber"}>phoneNumber</MenuItem> */}
         </Select>
         <Box sx={{ width: 20 }} />
         <Input

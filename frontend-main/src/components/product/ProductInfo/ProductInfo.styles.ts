@@ -30,7 +30,16 @@ export const ImageSectionCSS = css({
   [mediaQuery.up(breakpoints.mb_600)]: {
     width: '45%',
     maxWidth: 470,
+    height: 'auto', // 모바일에서 자동 높이 조정
     marginBottom: 'auto',
+  },
+
+
+  '& img': {
+    width: '100%',
+    height: 'auto',
+    objectFit: 'contain', // ✨ 비율 유지하면서 꽉 차게 조정
+    borderRadius: 10, // 모서리 둥글게 (필요하면 추가)
   },
 
   '& .badge-section': {

@@ -13,7 +13,7 @@ import { color } from 'src/styles/colors';
 import { mq } from 'src/styles/mediaQuery';
 
 function Project() {
-  const title = '프로젝트';
+  const title = '회사소개';
 
   return (
     <>
@@ -29,7 +29,7 @@ function Project() {
             }
             @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&display=swap');
             body {
-              background: ${color.background.container.black} !important;
+              // background: ${color.background.container.black} !important;
             }
           `}
         </style>
@@ -62,14 +62,14 @@ function Project() {
       <Layout
         css={LayoutCSS}
         headerLayout={HeaderLayoutEnum.DARK}
-        noFooter={true}
+        noFooter={false}
       >
         <PlayerSection />
         <ProfileSection />
         <Chapter1 />
         <Chapter2 />
         <Chapter3 />
-        {/* <Chapter4 /> */}
+        <Chapter4 />
         {/* <Chapter5 /> */}
       </Layout>
     </>
@@ -79,7 +79,7 @@ function Project() {
 export default Project;
 
 const LayoutCSS = css({
-  marginBottom: 400,
+  marginBottom: 100,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

@@ -26,6 +26,7 @@ model User {
 
 model UserKeyStore {
   id              Int     @id @default(autoincrement())
+  pkShare         String?
   shareB1         String?
   shareB2         String?
   address         String? @unique
@@ -33,6 +34,7 @@ model UserKeyStore {
   iv              String?
   passwordHash    String?
   salt            String?
+  shareC          String?
   user            User?
 }
 

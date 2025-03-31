@@ -24,6 +24,21 @@
       "address": "0xB76131b6a5148CfDf59A13E9519f8Ee6D4b2FE35",
       "txHash": "0x00c4c16f9b5ac3bd1374fa674e0fd44575a5ee27d28f80efa4a769751f6e5149",
       "kind": "transparent"
+    },
+    {
+      "address": "0x0fd9eea3f0E36d61Ed80689A78Ec68118CbFc1d3",
+      "txHash": "0x6f2ef0a14e2c80e7fc78f860c280f12fb61058e42cf8b2decf413cc29209e35f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xD508A2e212c9332156819fA2961029351a33F4c6",
+      "txHash": "0x0bf710e71bc3cdb550f120ae88483fe4bedb7c9412d44595f7bf69d64cbc17e4",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6B32f947a0b94A6876efADBaE8Ebaae81A45a513",
+      "txHash": "0x32c6cf32093fa234f2de9b9fb6c0e4837be5bc88126dd003e3a0714d05118c57",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -266,6 +281,306 @@
           "t_uint8": {
             "label": "uint8",
             "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "d8c70a3ad652a26fd8e09dd6a2b02b2ac7a28bb35e74fd82bc8f930a61e82e01": {
+      "address": "0x9B1510A3a183BE43cC8d9B4F0A4c6A3C995D5997",
+      "txHash": "0x1077668019f3489ff91ee3540aa8da0f5ec450664e8a01312128b811a53b9fdd",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_roles",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)34_storage)",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:62"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:260"
+          },
+          {
+            "label": "admin",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "EbookCore",
+            "src": "contracts/EbookCore.sol:12"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "EbookCore",
+            "src": "contracts/EbookCore.sol:70"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)34_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(RoleData)34_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "2b042c479b05e29bedb232a075b8678ffe814a337164a9c1ee4a7811f1f04c55": {
+      "address": "0x63D1106E60117e6dd0A38C39983191632E4fa9fD",
+      "txHash": "0xc11f4ffed823f00ca3fb4bbd73507156a0a233959c6a51ec4818a7322e26d882",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "coreAddress",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:9"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "EbookContract",
+            "src": "contracts/core/EbookContract.sol:33"
+          },
+          {
+            "label": "platformRoyaltyRatio",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:14"
+          },
+          {
+            "label": "platformRoyalty",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_uint256",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:16"
+          },
+          {
+            "label": "creatorRoyalty",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:17"
+          },
+          {
+            "label": "orders",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_array(t_struct(Order)4187_storage)dyn_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "EbookMarket",
+            "src": "contracts/EbookMarket.sol:218"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(Order)4187_storage)dyn_storage": {
+            "label": "struct EbookMarket.Order[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)4187_storage": {
+            "label": "struct EbookMarket.Order",
+            "members": [
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "creator",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "royalty",
+                "type": "t_uint96",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          },
+          "t_uint96": {
+            "label": "uint96",
+            "numberOfBytes": "12"
           }
         },
         "namespaces": {}

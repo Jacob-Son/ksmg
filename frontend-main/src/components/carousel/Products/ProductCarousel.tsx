@@ -87,8 +87,10 @@ export default function ProductCarousel({
                   <Image
                     alt={product.name}
                     src={product.nftImagePath}
-                    width={154}
-                    height={217}
+                    layout="responsive" // ✅ 자동 크기 조정
+                    objectFit="cover" // ✅ 비율 유지
+                    width={292}
+                    height={280}
                   />
                 </div>
               )}
@@ -102,7 +104,10 @@ export default function ProductCarousel({
                   <Image
                     alt={product.name}
                     src={product.nftImagePath}
-                    fill
+                    layout="intrinsic" // ✅ 원래 비율 유지
+                    width={image.width}
+                    height={image.height}
+                    objectFit="cover" // ✅ 이미지가 꽉 차도록 설정
                     css={css({
                       [mq.desktop]: {
                         width: '100%',

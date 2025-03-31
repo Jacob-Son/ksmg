@@ -39,7 +39,7 @@ function Login() {
         </div>
         <div css={DividerCSS} />
         <div css={ButtonWrapper}>
-          <LoginButton
+          {/* <LoginButton
             logo="/icons/login/kakao.svg"
             onClick={() => handleLogin('kakao')}
             backgroundColor={'#FEE500'}
@@ -52,7 +52,7 @@ function Login() {
             backgroundColor={'#02C759'}
             textColor={'#FFF'}
             text="네이버 로그인"
-          />
+          /> */}
           <LoginButton
             logo="/icons/login/google.svg"
             onClick={() => handleLogin('google')}

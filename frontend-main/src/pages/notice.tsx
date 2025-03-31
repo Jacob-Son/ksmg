@@ -32,7 +32,7 @@ export default function NoticePage() {
         {!isPending && (
           <Supports
             title="공지사항"
-            description="공지사항에 궁금한 사항이 있으시면, 언제든 피카펜 카카오톡 채널을 통해 문의해주세요."
+            description="공지사항에 궁금한 사항이 있으시면, 언제든 KSMG 카카오톡 채널을 통해 문의해주세요."
             returnUrl="/notice"
             showDate={true}
             data={noticeList}

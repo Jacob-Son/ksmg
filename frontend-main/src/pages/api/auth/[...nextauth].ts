@@ -17,6 +17,9 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      httpOptions: {
+        timeout: 100000, // ✅ 100초로 타임아웃 증가
+      },
     }),
   ],
 
@@ -35,6 +38,8 @@ export const authOptions = {
           accessToken: account.access_token,
         },
       );
+      console.log("🔹 OAuth 로그인 성공:", walletResult.data);
+
 
       return {
         ...token,

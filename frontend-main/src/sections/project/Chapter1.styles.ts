@@ -46,7 +46,7 @@ export const ChapterTextStyleCSS = css({
 
 export const ChapterTitleCSS = css({
   marginTop: 30,
-  fontSize: 40,
+  fontSize: 30,
   fontWeight: 700,
   lineHeight: '130%',
   color: '#fff', // ✅ 배경 대비 가독성 향상

@@ -72,18 +72,27 @@ export class UsersService {
     try {
       const decryptedUsers = [];
       for (const user of users) {
-        const decryptedName = await decryptText({
-          prisma: this.prisma,
-          content: user.name,
-        });
-        const decryptedPhoneNumber = await decryptText({
-          prisma: this.prisma,
-          content: user.phoneNumber,
-        });
-        const decryptedAccountNumber = await decryptText({
-          prisma: this.prisma,
-          content: user.accountNumber,
-        });
+        const decryptedName = user.name
+          ? await decryptText({
+              prisma: this.prisma,
+              content: user.name,
+            })
+          : '';
+
+        const decryptedPhoneNumber = user.phoneNumber
+          ? await decryptText({
+              prisma: this.prisma,
+              content: user.phoneNumber,
+            })
+          : '';
+
+        const decryptedAccountNumber = user.accountNumber
+          ? await decryptText({
+              prisma: this.prisma,
+              content: user.accountNumber,
+            })
+          : '';
+
         decryptedUsers.push({
           ...user,
           name: decryptedName,
@@ -107,20 +116,24 @@ export class UsersService {
         },
       });
       if (!user) return null;
+
       return {
         ...user,
-        name: await decryptText({
-          prisma: this.prisma,
-          content: user.name,
-        }),
-        phoneNumber: await decryptText({
-          prisma: this.prisma,
-          content: user.phoneNumber,
-        }),
-        accountNumber: await decryptText({
-          prisma: this.prisma,
-          content: user.accountNumber,
-        }),
+        name: user.name
+          ? await decryptText({ prisma: this.prisma, content: user.name })
+          : '',
+        phoneNumber: user.phoneNumber
+          ? await decryptText({
+              prisma: this.prisma,
+              content: user.phoneNumber,
+            })
+          : '',
+        accountNumber: user.accountNumber
+          ? await decryptText({
+              prisma: this.prisma,
+              content: user.accountNumber,
+            })
+          : '',
       };
     } catch (e) {
       console.log(e);
@@ -613,13 +626,10 @@ export class UsersService {
       });
 
       const settleIds = settles.map((settle) => settle.settleId);
-
       const result = await this.orderService.requestSettlement({ settleIds });
 
       const user = await this.prisma.user.findUnique({
-        where: {
-          userAddress: address,
-        },
+        where: { userAddress: address },
         select: {
           phoneNumber: true,
           email: true,
@@ -627,14 +637,14 @@ export class UsersService {
           loginType: true,
         },
       });
-      const realUserName = await decryptText({
-        prisma: this.prisma,
-        content: user.name,
-      });
-      const realPhoneNumber = await decryptText({
-        prisma: this.prisma,
-        content: user.phoneNumber,
-      });
+
+      const realUserName = user?.name
+        ? await decryptText({ prisma: this.prisma, content: user.name })
+        : '';
+
+      const realPhoneNumber = user?.phoneNumber
+        ? await decryptText({ prisma: this.prisma, content: user.phoneNumber })
+        : '';
 
       const totalSettlePrice = await this.getTotalSettlePrice(settleIds);
 

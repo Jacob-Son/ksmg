@@ -9,7 +9,7 @@ import { mq } from 'src/styles/mediaQuery';
 import { maxWidth } from 'src/styles/styles';
 
 export default function EventsPage() {
-  const title = '이벤트 / 문화행사';
+  const title = '이벤트 / 할인행사';
   const router = useRouter();
   const { query } = router;
   const { page } = query;
@@ -53,8 +53,8 @@ export default function EventsPage() {
 
 const LayoutCSS = css({
   marginTop: 100,
-  paddingLeft: 30,
-  paddingRight: 30,
+  paddingLeft: 0,
+  paddingRight: 0,
   paddingBottom: 400,
   display: 'flex',
   flexDirection: 'column',

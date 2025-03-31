@@ -19,8 +19,8 @@ export const navList = [
   //   link: '/auction',
   //   title: '경매',
   // },
-  {
-    link: '/studio',
-    title: '스튜디오',
-  },
+  // {
+  //   link: '/studio',
+  //   title: '스튜디오',
+  // },
 ];

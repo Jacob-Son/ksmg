@@ -17,18 +17,23 @@ import { SimpleNftType } from '~/types/nft';
 
 export const categoryData = [
   {
-    name: '전체 작품',
-    children: [],
-  },
-  {
-    name: '장인인삼',
+    name: '전체 상품',
     children: [
       '전체',
-      'RG3',
-      '진생스토리',
-
+      '건강기능식품',
+      '간편식품',
+      '커피/음료',
     ],
   },
+  // {
+  //   name: '장인인삼',
+  //   children: [
+  //     '전체',
+  //     'RG3',
+  //     '진생스토리',
+
+  //   ],
+  // },
   // {
   //   name: '육필 시 노트',
   //   children: [],
@@ -47,7 +52,7 @@ export default function CategoryPage() {
   const { nftList, isLoading } = useNftList(
     Number(page),
     String(
-      category === '전체 작품' || category === '전체 작품' ? '' : category,
+      category === '전체 상품' || category === '전체 상품' ? '' : category,
     ),
     String(theme),
     String(keyword),
@@ -67,8 +72,8 @@ export default function CategoryPage() {
     </>
   ) : category || theme ? (
     <>
-      {category === '전체 작품' ? (
-        '전체 작품입니다'
+      {category === '전체 상품' ? (
+        '전체 상품입니다'
       ) : (
         <>
           <span>{theme || category}</span> 상품목록입니다.
@@ -76,7 +81,7 @@ export default function CategoryPage() {
       )}
     </>
   ) : (
-    '전체 작품입니다'
+    '전체 상품입니다'
   );
 
   const searchResult = isLoading ? (
@@ -113,7 +118,7 @@ export default function CategoryPage() {
             <br />
             상품이 없습니다.
             <br />
-            다른 인삼을 찾아보는건 어떨까요?
+            다른 상품을 찾아보는건 어떨까요?
           </>
         )}
       </p>

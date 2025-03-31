@@ -103,7 +103,7 @@ export default function VerticalMenu(props: IVerticalMenuProps) {
                           : '-400%',
                     })}
                   >
-                    주제
+                    카테고리
                   </p>
                   <ul>
                     {category.children.map((theme) => (

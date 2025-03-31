@@ -1,63 +1,46 @@
-import { css } from '@emotion/react';
-import { mq } from 'src/styles/mediaQuery';
+import { css } from "@emotion/react";
+import { mq } from "src/styles/mediaQuery";
 
 export const ChapterContainerCSS = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  padding: '50px 20px',
-  boxSizing: 'border-box',
-});
-
-export const CertifiedImageCSS = css({
-  position: 'relative',
-  width: '100%',
-  maxWidth: '1296px', // ✅ 원본 크기 유지
-  height: 'auto',
-  aspectRatio: '1296 / 400', // ✅ 원본 비율 유지
-  marginTop: '40px', // ✅ 간격 추가 (텍스트와 이미지 사이)
-
-  [mq.mobile]: {
-    maxWidth: '100%',
-    height: 'auto',
-  },
-});
-
-export const ChapterTextStyleCSS = css({
-  fontFamily: "'Cormorant', serif",
-  fontSize: 30,
-  fontWeight: 400,
-  fontStyle: 'italic',
-  lineHeight: '100%',
-
-  '& span': {
-    fontFamily: "'Cormorant', serif",
-    fontSize: 51,
-  },
-
-  [mq.mobile]: {
-    fontSize: 26,
-
-    '& span': {
-      fontSize: 50,
-      fontFamily: "'Cormorant', serif",
-    },
-  },
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
+  padding: "0px 0px",
+  boxSizing: "border-box",
 });
 
 export const ChapterTitleCSS = css({
-  marginTop: 8,
-  fontSize: 40,
+  // marginTop: 8,
+  fontSize: 30,
   fontWeight: 700,
-  lineHeight: '130%',
-  textAlign: 'center',
-  color: '#000000', // ✅ 검정색 적용
+  lineHeight: "130%",
+  textAlign: "center",
+  color: "#000000",
 
   [mq.mobile]: {
     marginTop: 14,
     fontSize: 28,
-    lineHeight: '120%',
+    lineHeight: "120%",
+  },
+});
+
+export const GridContainerCSS = css({
+  display: "flex",
+  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", // 📌 5개 이미지 균일 정렬
+  gap: "20px",
+  justifyItems: "center",
+  marginTop: "20px",
+});
+
+export const CertificateImageCSS = css({
+  width: "100%",
+  maxWidth: "200px", // 📌 기존 300px → 250px 조정
+  cursor: "pointer",
+  transition: "transform 0.3s ease-in-out",
+
+  "&:hover": {
+    transform: "scale(1.05)",
   },
 });

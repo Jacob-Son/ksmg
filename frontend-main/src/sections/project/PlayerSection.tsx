@@ -15,11 +15,15 @@ export default function PlayerSection() {
         <p css={ProjectNoCSS}>
           {/* Project no.<span>1</span> */}
         </p>
-        <p css={SectionTitleCSS}>국내 최초 잔류 농약 없는 친환경 장인인삼</p>
+        <p css={SectionTitleCSS}>세계 최초 잔류 농약 없는 친환경 한국장인인삼</p>
         <p css={SectionDescriptionCSS}>
-          무잔류농약, 무항생제, 무색소 3無
+          우리 농가 활성화를 위해 직접 사입해 온 우리 인삼을
           <br />
-          실현하는 정직한 세계일류기업을 꿈꿉니다.
+          한국장인인삼만의 특허 기술을 활용하여
+          <br />
+          잔류 농약 없는 사포닌 100%의
+          <br />
+          고려 인삼으로 재탄생합니다.
         </p>
         {/* <Player /> */}
       </div>

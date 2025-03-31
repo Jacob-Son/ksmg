@@ -34,7 +34,7 @@ export default function InquiryPage() {
       >
         <h1 css={TitleCSS}>{title}</h1>
         <p css={TextCSS}>
-          문의사항이 있으실 경우 PICKAPEN 카카오톡 채널을 이용해주세요.
+          문의사항이 있으실 경우 (주)케이에스엠지 카카오톡 채널을 이용해주세요.
         </p>
         <Image
           alt="inquiry"
@@ -43,11 +43,11 @@ export default function InquiryPage() {
           height={277}
           css={ImageCSS}
         />
-        <div css={ButtonWrapperCSS}>
+        {/* <div css={ButtonWrapperCSS}>
           <Link href="https://pf.kakao.com/_RgxcPG" css={LinkButtonCSS}>
             카카오톡 채널 바로가기
-          </Link>
-        </div>
+          </Link> */}
+        {/* </div> */}
       </Layout>
     </>
   );

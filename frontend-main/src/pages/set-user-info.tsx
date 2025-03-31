@@ -64,32 +64,72 @@ export default function SetUserInfoPage() {
 
   // 주소지 화면 관련 정보
   const [name, setName] = React.useState(undefined);
-  const [phoneNumber, setPhoneNumber] = React.useState({
-    first: undefined,
-    second: undefined,
-    third: undefined,
-  });
+  // const [phoneNumber, setPhoneNumber] = React.useState({
+  //   first: undefined,
+  //   second: undefined,
+  //   third: undefined,
+  // });
   const [address, setAddress] = React.useState({
     zonecode: undefined,
     address: undefined,
     detailAddress: undefined,
   });
 
+  // const handleClickNext = async () => {
+  //   switch (step) {
+  //     case 'start':
+  //       setStep('verification');
+  //       break;
+  //     case 'verification':
+  //       if (sendNumber !== null && sendNumber === confirmNumber) {
+  //         setStep('address');
+  //       } else {
+  //         setError(true);
+  //         setConfirmNumber(null);
+  //       }
+  //       break;
+  //     case 'address':
+  //       setStep('input');
+  //       break;
+  //     case 'input':
+  //       setStep('confirm');
+  //       break;
+  //     case 'confirm':
+  //       if (password !== confirmPassword) {
+  //         setError(true);
+  //         setConfirmPassword('');
+  //         return;
+  //       }
+  //       const accessToken = sessionStorage.getItem('accessToken');
+  //       const phone = `${phoneNumber.first}-${phoneNumber.second}-${phoneNumber.third}`;
+
+  //       const res = await authApi.makeWallet(accessToken, password, phone, {
+  //         name: name,
+  //         phoneNumber: phone,
+  //         mainAddress: address.address,
+  //         detailAddress: address.detailAddress,
+  //         postCode: address.zonecode,
+  //       });
+  //       if (!res.success) {
+  //         alert(res.error);
+  //         return;
+  //       }
+  //       await queryClient.invalidateQueries({ queryKey: ['user'] });
+  //       if (window.gtag) {
+  //         window.gtag('event', 'conversion', {
+  //           send_to: 'AW-16539262850/QEPgCPT-3rAZEIK_xM49',
+  //         });
+  //       }
+  //       router.push('/');
+
+  //       break;
+  //   }
+  // };
+
   const handleClickNext = async () => {
     switch (step) {
       case 'start':
-        setStep('verification');
-        break;
-      case 'verification':
-        if (sendNumber !== null && sendNumber === confirmNumber) {
-          setStep('address');
-        } else {
-          setError(true);
-          setConfirmNumber(null);
-        }
-        break;
-      case 'address':
-        setStep('input');
+        setStep('input');  // 🚀 전화번호 인증 없이 비밀번호 설정으로 바로 이동
         break;
       case 'input':
         setStep('confirm');
@@ -101,33 +141,30 @@ export default function SetUserInfoPage() {
           return;
         }
         const accessToken = sessionStorage.getItem('accessToken');
-        const phone = `${phoneNumber.first}-${phoneNumber.second}-${phoneNumber.third}`;
-
-        const res = await authApi.makeWallet(accessToken, password, phone, {
+  
+        const res = await authApi.makeWallet(accessToken, password, {
           name: name,
-          phoneNumber: phone,
           mainAddress: address.address,
           detailAddress: address.detailAddress,
           postCode: address.zonecode,
         });
+  
         if (!res.success) {
           alert(res.error);
           return;
         }
         await queryClient.invalidateQueries({ queryKey: ['user'] });
-        if (window.gtag) {
-          window.gtag('event', 'conversion', {
-            send_to: 'AW-16539262850/QEPgCPT-3rAZEIK_xM49',
-          });
-        }
+  
         router.push('/');
-
         break;
     }
   };
-  const leaveButtonText = React.useMemo(() => {
-    return step === 'verification' ? '나중에 인증하기' : '나중에 설정하기';
-  }, [step]);
+
+
+  // const leaveButtonText = React.useMemo(() => {
+  //   return step === 'verification' ? '나중에 인증하기' : '나중에 설정하기';
+  // }, [step]);
+  const leaveButtonText = "나중에 설정하기";
   const nextButtonText = React.useMemo(() => {
     if (step === 'start') {
       return '다음';
@@ -157,7 +194,7 @@ export default function SetUserInfoPage() {
       return confirmPassword.length < 7;
     }
     return false;
-  }, [password, confirmPassword, step, name, phoneNumber, address]);
+  }, [password, confirmPassword, step, name, address]);
 
   return (
     <>
@@ -231,7 +268,7 @@ export default function SetUserInfoPage() {
             </div>
           </>
         )}
-        {step === 'verification' && (
+        {/* {step === 'verification' && (
           <>
             <p css={VerificationTextCSS}>전화번호 인증을 해주세요</p>
             <FindPassword
@@ -251,7 +288,7 @@ export default function SetUserInfoPage() {
               })}
             />
           </>
-        )}
+        )} */}
         {step === 'address' && (
           <>
             {isMobile && (

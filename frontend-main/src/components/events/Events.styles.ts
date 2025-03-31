@@ -7,16 +7,16 @@ export const EventsGridCSS = css({
   marginTop: 50,
   padding: '0 20px',
   gap: 24,
-  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateColumns: 'repeat(2, 1fr)',
 
   [mq.tablet]: {
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(1, 1fr)',
   },
   [mq.mobile]: {
     marginTop: 40,
     padding: 0,
     gap: '24px 20px',
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: 'repeat(1, 1fr)',
   },
 });
 
@@ -29,7 +29,7 @@ export const ImageAndTagContainerCSS = css({
 export const ImageWrapperCSS = css({
   position: 'relative',
   width: '100%',
-  aspectRatio: '23 / 24',
+  height: '100%', 
   background: color.skeleton,
 });
 

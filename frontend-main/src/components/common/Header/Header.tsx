@@ -33,6 +33,8 @@ import { useAuthStore } from 'src/stores/auth/auth.store';
 import { useUser } from 'src/hooks/mypage/useUser';
 import { UserRole } from '~/types/user';
 import { useCurrentAuction } from 'src/hooks/auction/useCurrentAuction';
+import GoogleTranslate from '../../GoogleTranslate'
+
 
 interface IHeaderProps {
   layout?: HeaderLayoutEnum;
@@ -82,7 +84,7 @@ export default function Header({
         src={
           layout === HeaderLayoutEnum.NORMAL
             ? '/icons/logo/ic_logo_purple.svg'
-            : '/icons/logo/ic_logo_gray.svg'
+            : '/icons/logo/ic_logo_purple.svg'
         }
         width={isDesktop ? 139 : 116}
         height={isDesktop ? 26 : 21.7}
@@ -137,6 +139,14 @@ export default function Header({
           </button>
         </li>
       )}
+
+      {/* Google Translate 추가 - 데스크탑에서만 표시 */}
+      {isDesktop && (
+        <li>
+          <GoogleTranslate />
+        </li>
+      )}
+      
       {!isSmallerThanST && (
         <li css={ProfileCSS}>
           <Link

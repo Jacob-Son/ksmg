@@ -41,16 +41,33 @@ export const useMakeOrder = ({
     const { IMP } = window;
     const storeCode = process.env.NEXT_PUBLIC_IMP_STORE_CODE;
     IMP.init(storeCode); // 가맹점 식별코드
+
+    // if (!user) {
+    //   alert("유저 정보가 없습니다. 다시 로그인해주세요.");
+    //   router.push("/login");  // ✅ 로그인 페이지로 이동
+    //   return;
+    // }
+    
     const data: RequestPayParams = {
-      pg: process.env.NEXT_PUBLIC_PG_CODE, // PG사 : https://developers.portone.io/docs/ko/tip/pg-2 참고
+      pg: process.env.NEXT_PUBLIC_PG_CODE,
       merchant_uid: order.merchantUid,
       amount: order.paidAmount,
       name: order.orderName,
-      buyer_name: user.name,
-      buyer_tel: user.phoneNumber,
-      buyer_email: user.email,
+      buyer_name: user?.name ?? "Test User",   // ✅ 기본값 설정
+      buyer_tel: user?.phoneNumber ?? "000-0000-0000",
+      buyer_email: user?.email ?? "no-email@example.com",
       m_redirect_url: process.env.NEXT_PUBLIC_DOMAIN + '/payments/complete',
     };
+    // const data: RequestPayParams = {
+    //   pg: process.env.NEXT_PUBLIC_PG_CODE, // PG사 : https://developers.portone.io/docs/ko/tip/pg-2 참고
+    //   merchant_uid: order.merchantUid,
+    //   amount: order.paidAmount,
+    //   name: order.orderName,
+    //   buyer_name: user.name,
+    //   buyer_tel: user.phoneNumber,
+    //   buyer_email: user.email,
+    //   m_redirect_url: process.env.NEXT_PUBLIC_DOMAIN + '/payments/complete',
+    // };
 
     try {
       IMP.request_pay(data, handleCallback);

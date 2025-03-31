@@ -26,10 +26,11 @@ export class AuthController {
   async signIn(@Headers('authorization') authorization: string) {
     let user: {
       name: string;
-      phoneNumber: string;
+      // phoneNumber: string;
       email: string;
       loginType: LoginType;
       profileImageUrl: string;
+      // role: UserRole; // ✅ 역할 추가
     };
     try {
       user = await this.authService.getUser(authorization);
@@ -82,11 +83,11 @@ export class AuthController {
   async makeAddress(
     @Headers('authorization') authorization: string,
     @Body('password') password: string,
-    @Body('phoneNumber') phoneNumber: string,
+    // @Body('phoneNumber') phoneNumber: string,
     @Body('shippingInfo')
     shippingInfo: Pick<
       ShippingInfo,
-      'name' | 'phoneNumber' | 'postCode' | 'mainAddress' | 'detailAddress'
+      'name' | 'postCode' | 'mainAddress' | 'detailAddress'
     >,
   ) {
     let user: {
@@ -109,7 +110,7 @@ export class AuthController {
       user.email,
       user.loginType,
       password,
-      phoneNumber,
+      // phoneNumber,
       shippingInfo,
       authorization,
     );
@@ -216,32 +217,32 @@ export class AuthController {
     };
   }
 
-  @Post('/certification-number')
-  @ApiTags('auth')
-  @ApiOperation({
-    summary: '인증번호 발송',
-    description: '인증번호를 발송합니다.',
-  })
-  @Roles(UserRole.ADMIN, UserRole.CREATOR, UserRole.USER)
-  async sendCertificationNumber(
-    @Body('phoneNumber') phoneNumber: string,
-    @Body('code') code: string,
-  ) {
-    const result = await this.authService.sendCertificationNumber(
-      phoneNumber,
-      String(code),
-    );
-    if (!result) {
-      return {
-        success: false,
-        error: '인증번호 발송에 실패했습니다.',
-        data: null,
-      };
-    }
-    return {
-      success: true,
-      error: null,
-      data: null,
-    };
-  }
+  // @Post('/certification-number')
+  // @ApiTags('auth')
+  // @ApiOperation({
+  //   summary: '인증번호 발송',
+  //   description: '인증번호를 발송합니다.',
+  // })
+  // @Roles(UserRole.ADMIN, UserRole.CREATOR, UserRole.USER)
+  // async sendCertificationNumber(
+  //   @Body('phoneNumber') phoneNumber: string,
+  //   @Body('code') code: string,
+  // ) {
+  //   const result = await this.authService.sendCertificationNumber(
+  //     phoneNumber,
+  //     String(code),
+  //   );
+  //   if (!result) {
+  //     return {
+  //       success: false,
+  //       error: '인증번호 발송에 실패했습니다.',
+  //       data: null,
+  //     };
+  //   }
+  //   return {
+  //     success: true,
+  //     error: null,
+  //     data: null,
+  //   };
+  // }
 }

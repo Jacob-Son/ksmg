@@ -83,7 +83,7 @@ export default function Products({
           <p css={ProductsNameCSS}>{name}</p>
           <p css={ProductsLengthCSS}>{data?.totalCount ?? 0}개</p>
 
-          {type === LibraryTabEnum.LIBRARY && (
+          {/* {type === LibraryTabEnum.LIBRARY && (
             <Button
               layout="contained"
               css={CombinationBtnCSS}
@@ -93,7 +93,8 @@ export default function Products({
             >
               시 조합
             </Button>
-          )}
+          )} */
+          }
         </div>
         {loading ? (
           <Pending />
@@ -122,14 +123,14 @@ export default function Products({
                         }}
                         css={ThreeDotsMenuCSS}
                       >
-                        <VerticalThreeDotIcon />
+                        {/* <VerticalThreeDotIcon />
                         <Dropdown css={ThreeDotsDropdownCSS}>
                           <DropdownItem>
                             <Link href={`/store/${item.tokenId}`}>
                               판매하기
                             </Link>
                           </DropdownItem>
-                        </Dropdown>
+                        </Dropdown> */}
                       </div>
                     )}
                   </div>

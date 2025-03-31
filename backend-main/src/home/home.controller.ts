@@ -81,7 +81,7 @@ export class HomeController {
   @ApiTags('home')
   @ApiOperation({
     summary: 'Get culture-event',
-    description: '문화 행사를 가져옵니다.',
+    description: '할인 행사를 가져옵니다.',
   })
   async getCultureEvent(): Promise<ApiResponseType<Event[]>> {
     const res = await this.homeService.getCultureEvent();

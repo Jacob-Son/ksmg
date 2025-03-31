@@ -207,7 +207,7 @@ export default function ProductActionGroup({
             layout="contained"
             disabled
           >
-            이미 판매된 작품입니다
+            이미 판매된 상품입니다
           </Button>
         );
       default:

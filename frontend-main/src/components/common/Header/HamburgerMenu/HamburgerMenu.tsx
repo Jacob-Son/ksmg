@@ -67,7 +67,7 @@ export default function HamburgerMenu({
         <Link href="/">
           <Image
             alt="logo"
-            src={'/icons/logo/ic_logo_dark.svg'}
+            src={'/icons/logo/ic_logo_purple.svg'}
             width={116}
             height={21.7}
           />

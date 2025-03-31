@@ -65,9 +65,9 @@ export default function CreateEBookPage() {
         alert('크리에이터 전용 페이지입니다.');
         router.push('/');
       }
-      if (!user.creatorName) {
-        router.push('/create-profile');
-      }
+      // if (!user.creatorName) {
+        // router.push('/create-profile');
+      // }
     }
   }, [status, user]);
 

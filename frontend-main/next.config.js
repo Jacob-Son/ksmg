@@ -20,7 +20,7 @@
 
 // module.exports = nextConfig;/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: [
       process.env.NEXT_PUBLIC_CLOUD_FRONT_URL,

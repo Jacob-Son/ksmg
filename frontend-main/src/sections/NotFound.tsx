@@ -19,7 +19,7 @@ export default function NotFound() {
         <br />
         도움이 필요하시다면,
         <br />
-        피카펜 카카오톡 채널에 문의해주세요.
+        KSMG 카카오톡 채널에 문의해주세요.
       </p>
       <Link href="/inquiry" css={LinkButtonCSS}>
         1:1 문의하기

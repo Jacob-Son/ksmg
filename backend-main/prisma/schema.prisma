@@ -12,10 +12,10 @@ model Book {
   maxPageNumber Int
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @default(now()) @updatedAt
+  fullAudioPath String?
   combinedNft   BurnedNft[]
   nfts          Nft[]
   pages         Page[]
-  fullAudioPath String?
 }
 
 model Page {
@@ -111,10 +111,10 @@ model User {
   userId          Int               @id @default(autoincrement())
   userAddress     String?           @unique
   name            String            @default("")
-  phoneNumber     String?           @default("")
   email           String            @default("")
   loginType       LoginType
   userProfileUrl  String?           @default("")
+  phoneNumber     String?           @default("")
   role            UserRole          @default(USER)
   accountNumber   String            @default("")
   bankName        String            @default("")
@@ -124,6 +124,7 @@ model User {
   accountOwner    String            @default("")
   partnerId       String?           @default("")
   isMasterAdmin   Boolean           @default(false)
+  BuyingDelivery  BuyingDelivery[]
   carts           Cart?
   combineDelivery CombineDelivery[]
   combineLog      CombineLog[]
@@ -131,7 +132,6 @@ model User {
   orders          Order[]
   settle          Settle[]
   shippingInfo    ShippingInfo?
-  BuyingDelivery  BuyingDelivery[]
 
   @@unique([email, loginType])
 }
@@ -140,7 +140,7 @@ model ShippingInfo {
   shippingId    Int      @id @default(autoincrement())
   userAddress   String   @unique
   name          String
-  phoneNumber   String
+  phoneNumber   String?  @default("")
   postCode      String
   mainAddress   String
   detailAddress String
@@ -210,19 +210,18 @@ model NftSale {
   createdAt        DateTime        @default(now())
   soldAt           DateTime?
   confirmAt        DateTime?
-  // refundAt      DateTime?
   nftId            Int
   orderId          Int?
   cartId           Int?
   platformFee      Int             @default(0)
   creatorFee       Int             @default(0)
   txHash           String?
+  buyingDeliveryId Int?
+  buyingDelivery   BuyingDelivery?
+  cartItem         CartItem[]
   nft              Nft             @relation(fields: [nftId], references: [nftId], onDelete: Cascade)
   order            Order?          @relation(fields: [orderId], references: [orderId])
   settles          Settle[]
-  cartItem         CartItem[]
-  buyingDelivery   BuyingDelivery?
-  buyingDeliveryId Int?
 
   @@index([cartId], map: "NftSale_cartId_fkey")
   @@index([nftId], map: "NftSale_nftId_fkey")
@@ -231,7 +230,6 @@ model NftSale {
 
 model RefundedNftSale {
   refundedNftSaleId Int       @id @default(autoincrement())
-  nftSaleId         Int
   sellerAddress     String
   buyerAddress      String?
   price             Int
@@ -241,6 +239,7 @@ model RefundedNftSale {
   orderId           Int?
   platformFee       Int       @default(0)
   creatorFee        Int       @default(0)
+  nftSaleId         Int
 }
 
 model Settle {
@@ -272,11 +271,12 @@ model CartItem {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now()) @updatedAt
   cartId     Int
-  cart       Cart     @relation(fields: [cartId], references: [cartId], onDelete: Cascade)
   nftSaleId  Int
+  cart       Cart     @relation(fields: [cartId], references: [cartId], onDelete: Cascade)
   nftSale    NftSale  @relation(fields: [nftSaleId], references: [nftSaleId], onDelete: Cascade)
 
   @@unique([cartId, nftSaleId])
+  @@index([nftSaleId], map: "CartItem_nftSaleId_fkey")
 }
 
 model LikeNft {
@@ -458,7 +458,7 @@ model CombineDelivery {
   combineDeliveryId Int            @id @default(autoincrement())
   userAddress       String
   name              String
-  phoneNumber       String
+  phoneNumber       String?        @default("")
   postCode          String
   mainAddress       String
   detailAddress     String
@@ -476,7 +476,7 @@ model BuyingDelivery {
   buyingDeliveryId Int                @id @unique
   userAddress      String
   name             String
-  phoneNumber      String
+  phoneNumber      String?            @default("")
   postCode         String
   mainAddress      String
   detailAddress    String
@@ -484,15 +484,11 @@ model BuyingDelivery {
   updatedAt        DateTime           @default(now()) @updatedAt
   status           DeliveryStatus     @default(READY)
   type             BuyingDeliveryType
-  nftSale          NftSale            @relation(fields: [nftSaleId], references: [nftSaleId], onDelete: Cascade)
   nftSaleId        Int                @unique
+  nftSale          NftSale            @relation(fields: [nftSaleId], references: [nftSaleId], onDelete: Cascade)
+  User             User               @relation(fields: [userAddress], references: [userAddress])
 
-  User User? @relation(fields: [userAddress], references: [userAddress])
-}
-
-enum BuyingDeliveryType {
-  COMBINE
-  NOTE
+  @@index([userAddress], map: "BuyingDelivery_userAddress_fkey")
 }
 
 model Notice {
@@ -515,14 +511,14 @@ model HttpLog {
   httpLogId   Int      @id @default(autoincrement())
   method      String
   url         String
-  statusCode  Int
   userAgent   String
   ip          String
   body        String   @db.VarChar(1000)
   query       String   @db.VarChar(1000)
-  userAddress String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now()) @updatedAt
+  statusCode  Int
+  userAddress String?
 }
 
 model Log {
@@ -539,6 +535,11 @@ model PaymentLog {
   status       String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @default(now()) @updatedAt
+}
+
+enum BuyingDeliveryType {
+  COMBINE
+  NOTE
 }
 
 enum UserRole {
@@ -585,7 +586,7 @@ enum OrderStatus {
 
 enum EventType {
   EVENT
-  CULTURE
+  SALE
 }
 
 enum DeliveryStatus {

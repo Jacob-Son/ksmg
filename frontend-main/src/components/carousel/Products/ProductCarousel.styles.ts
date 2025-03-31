@@ -8,6 +8,7 @@ export const ProductCarouselCSS = (perPage: number) =>
     alignItems: 'center',
     overflowX: 'scroll',
     marginTop: 24,
+    marginBottom: 24, /* 기존보다 조금 더 넓게 조정 */
     gap: 24,
 
     '&::-webkit-scrollbar': {
@@ -60,15 +61,18 @@ export const CarouselItemImgWrapperCSS = css({
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  height: 266,
-  background: color.background.container.imageWrapper,
+  height: 'auto',
+  // background: color.background.container.imageWrapper,
+  // background: color.background.container.imageWrapper,
   fontSize: 14,
-  lineHeight: '130%',
+  lineHeight: '100%',
 
   '& img': {
     borderRadius: 3.228,
-    boxShadow: `-6px 8px 7.2px 0px rgba(0, 0, 0, 0.36)`,
-    objectFit: 'cover',
+    // boxShadow: `-6px 8px 7.2px 0px rgba(0, 0, 0, 0.36)`,
+    objectFit: 'cover', // ✅ 비율 유지하며 꽉 차게
+    width: '100%', // ✅ 부모 크기에 맞추기
+    height: '100%', // ✅ 부모 크기에 맞추기
   },
 });
 

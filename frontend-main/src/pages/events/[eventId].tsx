@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { useEventDetail } from 'src/hooks/event/useEventDetail';
 
 export default function EventPage() {
-  const title = '이벤트 / 문화행사';
+  const title = '이벤트 / 할인행사';
   const router = useRouter();
   const { event } = useEventDetail(String(router.query.eventId));
 

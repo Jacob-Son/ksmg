@@ -33,6 +33,8 @@ export default function ProductInfo({ data, children }: IProductInfoProps) {
             (photo, idx) => ({
               src: photo,
               alt: 'product image' + idx,
+              layout: 'intrinsic', // ✅ 이미지 비율 유지
+
             }),
           )}
         />

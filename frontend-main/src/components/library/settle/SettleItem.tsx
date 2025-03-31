@@ -152,10 +152,10 @@ export default function SettleItem({
         >
           <p>거래 금액</p>
           <p css={PriceTextCSS}>{addComma(data.price)}원</p>
-          <p>플랫폼 수수료</p>
-          <p css={PriceTextCSS}>{addComma(data.platformFee)}원</p>
-          <p>작가 수수료</p>
-          <p css={PriceTextCSS}>{addComma(data.creatorFee)}원</p>
+          {/* <p>플랫폼 수수료</p> */}
+          {/* <p css={PriceTextCSS}>{addComma(data.platformFee)}원</p> */}
+          {/* <p>작가 수수료</p> */}
+          {/* <p css={PriceTextCSS}>{addComma(data.creatorFee)}원</p> */}
         </div>
         <div
           css={css({

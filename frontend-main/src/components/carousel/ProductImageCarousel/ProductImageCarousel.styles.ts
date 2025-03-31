@@ -6,9 +6,9 @@ export const ProductImageCarouselContainerCSS = css({
   position: 'relative',
   overflowX: 'hidden',
   width: '100%',
-  height: 'auto',
+  height: '100%',
   borderRadius: '8px',
-  aspectRatio: `1 / ${Math.sqrt(2)}`,
+  // aspectRatio: `1 / ${Math.sqrt(2)}`,
   boxShadow: '0px 1px 4px 1px rgba(0, 0, 0, 0.25)',
 });
 
