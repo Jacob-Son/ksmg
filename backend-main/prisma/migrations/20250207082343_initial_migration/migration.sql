@@ -374,6 +374,7 @@ CREATE TABLE `Event` (
     `startDay` DATETIME(3) NOT NULL,
     `endDay` DATETIME(3) NOT NULL,
     `externalUrl` VARCHAR(191) NULL,
+    `eventType` ENUM('EVENT', 'SALE') NOT NULL DEFAULT 'EVENT',
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
@@ -665,4 +666,3 @@ ALTER TABLE `BuyingDelivery` ADD CONSTRAINT `BuyingDelivery_nftSaleId_fkey` FORE
 ALTER TABLE `BuyingDelivery` ADD CONSTRAINT `BuyingDelivery_userAddress_fkey` FOREIGN KEY (`userAddress`) REFERENCES `User`(`userAddress`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- ✅ Event 테이블에서 ENUM 수정 (CULTURE 삭제, SALE 추가)
-ALTER TABLE `Event` MODIFY COLUMN `eventType` ENUM('EVENT', 'SALE') NOT NULL;

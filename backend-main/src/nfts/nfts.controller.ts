@@ -63,7 +63,7 @@ export class NftsController {
   @ApiTags('nfts')
   @ApiOperation({
     summary: 'Get same theme nfts',
-    description: '같은 작품의 NFT 목록을 가져옵니다.',
+    description: '같은 상품의 NFT 목록을 가져옵니다.',
   })
   @ApiParam({
     name: 'nftCreateUnitId',

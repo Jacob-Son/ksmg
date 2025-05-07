@@ -13,7 +13,7 @@ import { breakpoints, mediaQuery, mq } from 'src/styles/mediaQuery';
 import { SimpleNftType } from '~/types/nft';
 
 export default function CategoryPage() {
-  const title = '같은 작품';
+  const title = '같은 상품';
   const router = useRouter();
   const { nftCreateUnitId, page } = router.query;
   const { isMobile } = useResponsive();

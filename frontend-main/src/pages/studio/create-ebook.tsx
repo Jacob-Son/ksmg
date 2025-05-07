@@ -62,7 +62,7 @@ export default function CreateEBookPage() {
     } else if (status === 'authenticated') {
       if (user === undefined) return;
       if (user?.role === UserRole.USER) {
-        alert('크리에이터 전용 페이지입니다.');
+        alert('관리자 전용 페이지입니다.');
         router.push('/');
       }
       // if (!user.creatorName) {
