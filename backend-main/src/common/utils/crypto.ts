@@ -75,9 +75,9 @@ export const decryptText = async ({
   prisma: PrismaService;
   content: string | null;
 }): Promise<string> => {
-  if (!content) {
-    return ''; // 또는 null 반환 (사용처에 맞게 변경 가능)
-  }
+  // if (!content) {
+  //   return ''; // 또는 null 반환 (사용처에 맞게 변경 가능)
+  // }
 
   const ivInfo = await prisma.config.findUnique({
     where: {
