@@ -1,6 +1,8 @@
 import { createCipheriv, randomBytes, scrypt, createDecipheriv } from 'crypto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { promisify } from 'util';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const password = process.env.CRYPTO_PASSWORD!;
 
