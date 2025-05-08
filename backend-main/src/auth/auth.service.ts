@@ -161,7 +161,8 @@ export class AuthService {
             accountNumber,
           },
           isNewUser: false,
-          isNeedPassword: !checkUser.userAddress,
+          //달라진 점
+          // isNeedPassword: !checkUser.userAddress,
         };
       }
 

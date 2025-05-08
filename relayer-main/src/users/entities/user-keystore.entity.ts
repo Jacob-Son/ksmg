@@ -25,4 +25,10 @@ export class UserKeyStoreEntity implements UserKeyStore {
 
   @ApiProperty()
   iv: string;
+
+  @ApiProperty()
+  pkShare: string;
+
+  @ApiProperty()
+  shareC: string;
 }
