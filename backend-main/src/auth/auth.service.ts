@@ -184,8 +184,13 @@ export class AuthService {
         isNewUser: true,
       };
     } catch (e) {
-      console.error('Error in signIn:', e);
-      throw new Error('로그인 처리 중 오류 발생');
+      // console.error('Error in signIn:', e);
+      // throw new Error('로그인 처리 중 오류 발생');
+      console.log(e);
+      return {
+        userInfo: null,
+        isNewUser: false,
+      };
     }
   }
 
