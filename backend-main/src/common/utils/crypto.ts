@@ -4,7 +4,7 @@ import { promisify } from 'util';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const password = process.env.CRYPTO_PASSWORD!;
+const password = process.env.CRYPTO_PASSWORD;
 
 export const encryptText = async (
   prisma: PrismaService,
