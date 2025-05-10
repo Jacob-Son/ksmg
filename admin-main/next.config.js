@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["storage-test.pickapen.io"],
+    domains: ["storage.ksmg.store"],
   },
 };
 

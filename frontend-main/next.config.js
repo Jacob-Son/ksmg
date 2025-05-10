@@ -28,7 +28,7 @@ const nextConfig = {
       'k.kakaocdn.net',
       'phinf.pstatic.net',
       'localhost',
-      'storage.pickapen.io',
+      'storage.ksmg.store',
       't1.kakaocdn.net', // ✅ 카카오 프로필 이미지 도메인 추가
     ],
   },
