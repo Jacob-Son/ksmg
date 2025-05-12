@@ -129,7 +129,7 @@ export default function SetUserInfoPage() {
   const handleClickNext = async () => {
     switch (step) {
       case 'start':
-        setStep('input');  // 🚀 전화번호 인증 없이 비밀번호 설정으로 바로 이동
+        setStep('input'); // 🚀 전화번호 인증 없이 비밀번호 설정으로 바로 이동
         break;
       case 'input':
         setStep('confirm');
@@ -141,30 +141,31 @@ export default function SetUserInfoPage() {
           return;
         }
         const accessToken = sessionStorage.getItem('accessToken');
-  
-        const res = await authApi.makeWallet(accessToken, password, {
+
+        const phone = '010-0000-0000';
+        const res = await authApi.makeWallet(accessToken, password, phone, {
           name: name,
+          phoneNumber: phone,
           mainAddress: address.address,
           detailAddress: address.detailAddress,
           postCode: address.zonecode,
         });
-  
+
         if (!res.success) {
           alert(res.error);
           return;
         }
         await queryClient.invalidateQueries({ queryKey: ['user'] });
-  
+
         router.push('/');
         break;
     }
   };
 
-
   // const leaveButtonText = React.useMemo(() => {
   //   return step === 'verification' ? '나중에 인증하기' : '나중에 설정하기';
   // }, [step]);
-  const leaveButtonText = "나중에 설정하기";
+  const leaveButtonText = '나중에 설정하기';
   const nextButtonText = React.useMemo(() => {
     if (step === 'start') {
       return '다음';
