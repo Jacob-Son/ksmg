@@ -1,6 +1,13 @@
 ﻿import React, { useEffect } from 'react';
 import { css } from '@emotion/react';
 
+// src/components/GoogleTranslate.tsx 상단
+declare global {
+  interface Window {
+    google?: any;
+  }
+}
+
 const translateStyles = css`
   /* 전체 컨테이너 스타일 */
   .goog-te-gadget {
@@ -21,15 +28,15 @@ const translateStyles = css`
     font-size: 14px !important;
     position: relative;
     padding-left: 24px !important;
-    
+
     &::before {
-      content: "🌐"; /* 아이콘 변경 */
+      content: '🌐'; /* 아이콘 변경 */
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
       font-size: 18px;
-      padding: 3px, 3px, 3px, 3px
+      padding: 3px, 3px, 3px, 3px;
     }
 
     span:first-child {
@@ -37,7 +44,7 @@ const translateStyles = css`
     }
 
     &::after {
-      content: "Select Language"; /* 새 텍스트 */
+      content: 'Select Language'; /* 새 텍스트 */
       display: inline-block;
     }
   }
@@ -49,7 +56,7 @@ const translateStyles = css`
 
   /* 드롭다운 메뉴 스타일 */
   .goog-te-menu-frame {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     border-radius: 4px !important;
   }
 `;
@@ -59,17 +66,18 @@ const GoogleTranslate = () => {
     if (window.google?.translate?.TranslateElement) return;
 
     const script = document.createElement('script');
-    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.src =
+      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
-    
+
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: 'ko',
           includedLanguages: 'en,ar,zh-CN,ja,ms',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
         },
-        'google_translate_element'
+        'google_translate_element',
       );
     };
 
@@ -83,7 +91,7 @@ const GoogleTranslate = () => {
   }, []);
 
   return (
-    <div 
+    <div
       id="google_translate_element"
       css={translateStyles}
       style={{ display: 'inline-block' }}
