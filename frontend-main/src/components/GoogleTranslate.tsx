@@ -4,9 +4,15 @@ import { css } from '@emotion/react';
 // src/components/GoogleTranslate.tsx 상단
 declare global {
   interface Window {
+    googleTranslateElementInit?: () => void;
     google?: {
       translate?: {
-        TranslateElement?: unknown;
+        TranslateElement?: {
+          InlineLayout: {
+            SIMPLE: unknown;
+          };
+          new (options: Record<string, unknown>, elementId: string): void;
+        };
       };
     };
   }
@@ -73,7 +79,6 @@ const GoogleTranslate = () => {
     script.src =
       'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
-
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         {
