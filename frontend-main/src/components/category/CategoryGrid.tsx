@@ -21,13 +21,15 @@ interface ICategoryGridProps {
 
 export default function CategoryGrid({ name, data }: ICategoryGridProps) {
   if (!data || data.length === 0)
-    return <p css={noProductsMessage}>현재 선택된 카테고리에 상품이 없습니다.</p>;
+    return (
+      <p css={noProductsMessage}>현재 선택된 카테고리에 상품이 없습니다.</p>
+    );
 
   return (
     <div>
       {/* ✅ TitleRow 추가 (정렬 방식 통일) */}
       <TitleRow
-        // name={name}
+        name="카테고리"
         css={css({ padding: `0 24px` })}
         showNavigator={false} // ✅ Grid 방식에서는 네비게이터 숨김
       />
@@ -53,7 +55,9 @@ export default function CategoryGrid({ name, data }: ICategoryGridProps) {
             </div>
 
             {/* ✅ 상품 정보 */}
-            <p css={categoryText}>{product.theme ? product.theme : product.category}</p>
+            <p css={categoryText}>
+              {product.theme ? product.theme : product.category}
+            </p>
             <p css={productTitle}>{product.name}</p>
             <p css={productPrice}>
               <span>{addComma(product.price ?? 0)}</span> 원
@@ -100,7 +104,7 @@ const categoryText = css({
   fontWeight: 300,
   lineHeight: '120%',
   color: color.purple,
-  textAlign: "left", // ✅ 왼쪽 정렬 추가
+  textAlign: 'left', // ✅ 왼쪽 정렬 추가
 });
 
 const productTitle = css({
@@ -109,7 +113,7 @@ const productTitle = css({
   fontWeight: 600,
   lineHeight: '100%',
   color: '#000',
-  textAlign: "left", // ✅ 왼쪽 정렬 추가
+  textAlign: 'left', // ✅ 왼쪽 정렬 추가
 });
 
 const productPrice = css({
@@ -121,7 +125,7 @@ const productPrice = css({
   '& span': {
     fontSize: 18,
   },
-  textAlign: "left", // ✅ 왼쪽 정렬 추가
+  textAlign: 'left', // ✅ 왼쪽 정렬 추가
 });
 
 const noProductsMessage = css({

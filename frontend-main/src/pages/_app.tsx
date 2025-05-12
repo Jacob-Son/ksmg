@@ -1,4 +1,4 @@
-import App from 'next/app';
+import NextApp from 'next/app';
 import Head from 'next/head';
 // import React from 'react';
 import LoginModal from 'src/components/common/Modal/LoginModal';
@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 export const queryClient = new QueryClient();
 
-function app({ Component, pageProps: { session, ...pageProps } }) {
+function App({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {
     window.addEventListener('contextmenu', (e) => e.preventDefault());
     return () => {
@@ -100,10 +100,10 @@ function app({ Component, pageProps: { session, ...pageProps } }) {
     </>
   );
 }
-app.getInitialProps = async (appContext) => {
-  const appProps = await App.getInitialProps(appContext);
+App.getInitialProps = async (appContext) => {
+  const appProps = await NextApp.getInitialProps(appContext);
 
   return { ...appProps };
 };
 
-export default app;
+export default App;

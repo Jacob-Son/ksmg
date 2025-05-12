@@ -1,6 +1,6 @@
 ﻿// src/App.tsx
 import React, { useState } from 'react';
-import Header from './components/header';
+import Header from './components/common/Header/Header';
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<string>('en');
@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Header language={language} onLanguageChange={handleLanguageChange} />
+      {/* <Header language={language} onLanguageChange={handleLanguageChange} /> */}
       <main style={{ padding: '1rem' }}>
         <p>이곳에 번역될 텍스트가 나옵니다.</p>
       </main>
