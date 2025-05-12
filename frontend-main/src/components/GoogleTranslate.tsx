@@ -4,7 +4,11 @@ import { css } from '@emotion/react';
 // src/components/GoogleTranslate.tsx 상단
 declare global {
   interface Window {
-    google?: any;
+    google?: {
+      translate?: {
+        TranslateElement?: unknown;
+      };
+    };
   }
 }
 
