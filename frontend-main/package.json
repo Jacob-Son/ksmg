@@ -54,6 +54,5 @@
     "dev:(주)케이에스엠지": "env-cmd -f .env.(주)케이에스엠지 yarn dev"
   },
   "author": "",
-  "license": "ISC",
-  "packageManager": "yarn@4.1.1"
+  "license": "ISC"
 }
