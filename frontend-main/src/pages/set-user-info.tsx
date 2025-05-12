@@ -64,11 +64,11 @@ export default function SetUserInfoPage() {
 
   // 주소지 화면 관련 정보
   const [name, setName] = React.useState(undefined);
-  // const [phoneNumber, setPhoneNumber] = React.useState({
-  //   first: undefined,
-  //   second: undefined,
-  //   third: undefined,
-  // });
+  const [phoneNumber, setPhoneNumber] = React.useState({
+    first: '',
+    second: '',
+    third: '',
+  });
   const [address, setAddress] = React.useState({
     zonecode: undefined,
     address: undefined,
@@ -142,7 +142,7 @@ export default function SetUserInfoPage() {
         }
         const accessToken = sessionStorage.getItem('accessToken');
 
-        const phone = '010-0000-0000';
+        const phone = `${phoneNumber.first}-${phoneNumber.second}-${phoneNumber.third}`;
         const res = await authApi.makeWallet(accessToken, password, phone, {
           name: name,
           phoneNumber: phone,
