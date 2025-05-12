@@ -36,7 +36,6 @@ export default function Layout({
 }: ILayoutProps) {
   const router = useRouter();
   const { data: session, status } = useSession();
-  console.log("Access Token:", session?.accessToken);
   const { setUser } = useUserStore();
   const [render, setRender] = React.useState(false);
 
@@ -45,14 +44,17 @@ export default function Layout({
       /* eslint-disable @typescript-eslint/no-explicit-any */
       sessionStorage.setItem('accessToken', (session as any).accessToken);
       authApi.signIn((session as any).accessToken).then((res) => {
-        console.log("로그인 응답:", res); // 👀 응답 확인
+        console.log('로그인 응답:', res); // 👀 응답 확인
 
         if (res.success) {
           if (res.data?.userInfo?.userAddress) {
             setUser(res.data?.userInfo ?? null);
           } else {
             // router.push('/set-user-info');
-            console.warn("🚨 사용자 주소 없음! 추가 정보 필요:", res.data?.userInfo);
+            console.warn(
+              '🚨 사용자 주소 없음! 추가 정보 필요:',
+              res.data?.userInfo,
+            );
             router.push('/set-user-info'); // 🚨 여전히 필요하면 유지
           }
         } else {
