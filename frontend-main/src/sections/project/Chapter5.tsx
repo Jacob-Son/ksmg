@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ChapterTextStyleCSS,
-  ChapterTitleCSS,
-  SectionContainerCSS,
-} from './Section.styles';
+import { ChapterTextStyleCSS, SectionContainerCSS } from './Section.styles';
 import {
   ContentCSS,
   ContentDecorationCSS,
@@ -23,10 +19,6 @@ export default function Chapter5() {
       <div css={SectionHeadCSS}>
         <p css={ChapterTextStyleCSS}>
           Chapter <span>5</span>.
-        </p>
-        <p css={ChapterTitleCSS}>
-          PICKAPEN eBook <br />
-          이데아 및 향후 계획
         </p>
       </div>
       <div css={ContentsFlexCSS}>
