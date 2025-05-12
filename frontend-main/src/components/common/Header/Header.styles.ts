@@ -140,13 +140,13 @@ export const CartLengthCSS = (layout: HeaderLayoutEnum) =>
     }),
   });
 
-  // 기존 스타일에 추가
+// 기존 스타일에 추가
 export const GoogleTranslateCSS = css({
   '.goog-te-combo': {
     padding: '6px 8px',
     borderRadius: '4px',
     border: `1px solid ${color.border.primary}`,
-    backgroundColor: color.background.primary,
+    backgroundColor: '#ffffff',
     color: color.text.primary,
     fontSize: '14px',
   },
