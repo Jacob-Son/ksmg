@@ -16,7 +16,7 @@ export const ProductItemImgWrapperCSS = css({
   '& img': {
     width: '100%', // 컨테이너를 꽉 채우도록 설정
     height: '100%',
-    objectFit: 'relative', // 비율 유지하면서 크롭
+    objectFit: 'cover',
     borderRadius: 3.228,
     boxShadow: `-6px 8px 7.2px 0px rgba(0, 0, 0, 0.36)`,
   },
