@@ -12,7 +12,6 @@ export const BannerContainerCSS = css({
 
   [mq.mobile]: {
     aspectRatio: '390 / 510',
-    position: 'contain',
   },
 });
 export const BannerImagesWrapperCSS = css({
