@@ -23,7 +23,7 @@ const nextConfig = {
   reactStrictMode: false,
   images: {
     domains: [
-      process.env.NEXT_PUBLIC_CLOUD_FRONT_URL,
+      'daqdg9bqn9ues.cloudfront.net',
       'lh3.googleusercontent.com',
       'k.kakaocdn.net',
       'phinf.pstatic.net',
@@ -35,4 +35,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
