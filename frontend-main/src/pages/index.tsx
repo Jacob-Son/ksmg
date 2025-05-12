@@ -78,12 +78,17 @@ export default function MainPage() {
             flexDirection: 'column',
           })}
         >
-
           {/* 카테고리별 상품 탭 추가 */}
-          <CategoryTabs products={[...hotProducts, ...topProducts, ...recentProducts]} />
+          <CategoryTabs
+            products={[...hotProducts, ...topProducts, ...recentProducts]}
+          />
           {/* 📌 배너 추가 부분 */}
           <div css={SmallBannerWrapper}>
-            <a href="https://www.youtube.com/watch?v=02D7S7OS2wM" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.youtube.com/watch?v=02D7S7OS2wM"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/imgs/banner/Sec_01.png" // ✅ 배너 이미지 경로 수정
                 alt="메시지 카드 보내기"
@@ -91,22 +96,19 @@ export default function MainPage() {
                 height={200}
                 layout="cover" // ✅ 원래 비율 유지
                 css={SmallBannerImageCSS} // ✅ 모바일 대응 스타일 적용
-
               />
-              </a>
+            </a>
           </div>
         </div>
 
-          <div
-            css={css({
-              marginTop: 40,
-              gap: 60,
-              display: 'flex',
-              flexDirection: 'column',
-            })}
+        <div
+          css={css({
+            marginTop: 40,
+            gap: 60,
+            display: 'flex',
+            flexDirection: 'column',
+          })}
         >
-          
-
           {/* 인기 급상승 상품 */}
           {hotProducts.length > 0 && (
             <ProductCarousel name="인기 급상승 상품" data={hotProducts} />
@@ -140,7 +142,6 @@ export default function MainPage() {
 
           <div css={DividerCSS} />
 
-          
           {/* Top 20 */}
           {topProducts.length > 0 && (
             <ProductCarousel
@@ -154,10 +155,8 @@ export default function MainPage() {
 
           {/* 인기 카테고리 순위 */}
           {popularTheme && (
-            <Ranks 
-            name="인기 카테고리 순위" 
-            data={popularTheme }
-          />)}
+            <Ranks name="인기 카테고리 순위" data={popularTheme} />
+          )}
 
           {/* 방금 팔린 상품 */}
           {recentProducts.length > 0 && (
@@ -173,7 +172,13 @@ export default function MainPage() {
           <h2>언론에서 먼저 알아본 한국장인인삼</h2>
           <div css={NewsGridCSS}>
             {newsList.map((news, index) => (
-              <a key={index} href={news.link} target="_blank" rel="noopener noreferrer" css={NewsCardCSS}>
+              <a
+                key={index}
+                href={news.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                css={NewsCardCSS}
+              >
                 <img src={news.image} alt={news.title} />
                 <div className="news-content">
                   <span>{news.title}</span>
@@ -234,22 +239,22 @@ const SmallBannerImageCSS = css({
 
 const newsList = [
   {
-    title: "[K-브랜드] 정의와 타협하는 정직한 기업 최고의 제품 생산!",
-    description: "한국장인인삼이 글로벌 시장에서도 인기를 끌고 있습니다.",
-    image: "/imgs/news/news1.jpg",
-    link: "https://www.msnews.co.kr/news/articleView.html?idxno=604785",
+    title: '[K-브랜드] 정의와 타협하는 정직한 기업 최고의 제품 생산!',
+    description: '한국장인인삼이 글로벌 시장에서도 인기를 끌고 있습니다.',
+    image: '/imgs/news/news1.jpg',
+    link: 'https://www.msnews.co.kr/news/articleView.html?idxno=604785',
   },
   {
-    title: "[인터뷰] 고려인삼 부활의 꿈을 이루다!",
-    description: "개발 전문 이사 김태현 이사님의 진솔한 인터뷰를 만나보세요.",
-    image: "/imgs/news/news2.jpg",
-    link: "https://www.msnews.co.kr/news/articleView.html?idxno=599472",
+    title: '[인터뷰] 고려인삼 부활의 꿈을 이루다!',
+    description: '개발 전문 이사 김태현 이사님의 진솔한 인터뷰를 만나보세요.',
+    image: '/imgs/news/news2.jpg',
+    link: 'https://www.msnews.co.kr/news/articleView.html?idxno=599472',
   },
   {
-    title: "대한민국 소비자 신뢰 명품 대상, 기업 경쟁력 강화",
-    description: "기술과 경쟁력을 인증받은 한국장인인삼의 품질과 효능",
-    image: "/imgs/news/news3.jpg",
-    link: "https://www.womancs.co.kr/news/articleView.html?idxno=86571",
+    title: '대한민국 소비자 신뢰 명품 대상, 기업 경쟁력 강화',
+    description: '기술과 경쟁력을 인증받은 한국장인인삼의 품질과 효능',
+    image: '/imgs/news/news3.jpg',
+    link: 'https://www.womancs.co.kr/news/articleView.html?idxno=86571',
   },
 ];
 
@@ -279,8 +284,13 @@ const NewsCardCSS = css({
   textDecoration: 'none',
   color: '#333',
   '&:hover': { transform: 'scale(1.05)' },
-  img: { width: '100%', height: 250, objectFit: 'relative' },
-  '.news-content': { padding: '15px', display: 'flex', flexDirection: 'column', gap: 8 },
+  img: { width: '100%', height: 250, objectFit: 'cover' },
+  '.news-content': {
+    padding: '15px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+  },
   span: { fontSize: 18, fontWeight: 'bold', color: 'black' },
   p: { fontSize: 14, color: '#555', margin: 0 },
 });
