@@ -18,30 +18,9 @@ import { SimpleNftType } from '~/types/nft';
 export const categoryData = [
   {
     name: '전체 상품',
-    children: [
-      '전체',
-      '건강기능식품',
-      '간편식품',
-      '커피/음료',
-    ],
+    children: ['전체', '건강기능식품', '간편식품', '커피/음료'],
   },
-  // {
-  //   name: '장인인삼',
-  //   children: [
-  //     '전체',
-  //     'RG3',
-  //     '진생스토리',
 
-  //   ],
-  // },
-  // {
-  //   name: '육필 시 노트',
-  //   children: [],
-  // },
-  // {
-  //   name: '문화예술',
-  //   children: [],
-  // },
 ];
 
 export default function CategoryPage() {

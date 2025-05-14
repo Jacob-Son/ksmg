@@ -45,7 +45,7 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
           label: item,
           value: item,
         })),
-    [categoryData, category],
+    [category],
   );
 
   const handleChangeAttributes = (e, index: number, type: 'key' | 'value') => {
