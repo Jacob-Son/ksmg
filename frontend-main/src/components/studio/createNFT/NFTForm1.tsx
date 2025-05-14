@@ -63,14 +63,14 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
     <CreateNFTSection
       step={step}
       totalStep={totalStep}
-      title="상품 카테고리 설정"
-      description="등록하실 상품에 맞는 카테고리를 골라주세요."
+      title="작품 카테고리 설정"
+      description="등록하실 작품에 맞는 카테고리를 골라주세요."
       nextDisabled={!isFormValid}
     >
-      <FormText text="상품 카테고리를 골라주세요." required />
+      <FormText text="작품 카테고리를 골라주세요." required />
       <Select
         value={category}
-        placeholder="상품 카테고리 선택"
+        placeholder="작품 카테고리 선택"
         options={categoryOptions}
         onChange={(value) => setCategory(value)}
         css={TextFieldCSS}
