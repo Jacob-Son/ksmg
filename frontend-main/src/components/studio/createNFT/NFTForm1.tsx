@@ -75,7 +75,8 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
         onChange={(value) => setCategory(value)}
         css={TextFieldCSS}
       />
-      {category === '육필 시' && (
+      {/* {category === '육필 시' && ( */}
+      {themeOptions?.length > 0 && (
         <>
           <FormText
             text="상품 주제를 골라주세요."
