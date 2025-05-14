@@ -134,20 +134,20 @@ export default function NFTForm2({
     <CreateNFTSection
       step={step}
       totalStep={totalStep}
-      title="작품 상세 설정"
+      title="상품 상세 설정"
       description={
         <>
-          작품 정보가 등록된 후에는 해당 정보를 변경할 수 없습니다.
+          상품 정보가 등록된 후에는 해당 정보를 변경할 수 없습니다.
           <br />
           이미지는 <span>A5 사이즈</span>로 업로드해주세요.
         </>
       }
       nextDisabled={!isFormValid}
     >
-      <FormText text="작품 제목" required />
+      <FormText text="상품 제목" required />
       <TextField
         value={name}
-        placeholder="작품 이름을 지정해주세요"
+        placeholder="상품 이름을 지정해주세요"
         maxLength={20}
         showCount
         onChange={(e) => setName(e.target.value)}
@@ -157,19 +157,19 @@ export default function NFTForm2({
       <FormText text="간단 설명" required css={FormTitleCSS} />
       <TextField
         value={description}
-        placeholder="작품 제목 밑에 들어갈 간단 설명을 160자 이내로 써주세요."
+        placeholder="상품 제목 밑에 들어갈 간단 설명을 160자 이내로 써주세요."
         maxLength={160}
         showCount
         onChange={(e) => setDescription(e.target.value)}
         css={TextFieldCSS}
       />
 
-      {isCountForm && <FormText text="작품 수량" required css={FormTitleCSS} />}
+      {isCountForm && <FormText text="상품 수량" required css={FormTitleCSS} />}
       {isCountForm && (
         <TextField
           type="number"
           value={amount}
-          placeholder="발매할 작품 수량을 기입해주세요 500개가 최대입니다."
+          placeholder="발매할 상품 수량을 기입해주세요 500개가 최대입니다."
           min={0}
           max={500}
           checkError={checkError}
@@ -244,15 +244,15 @@ export default function NFTForm2({
       </form>
 
       <FormText
-        text="작품 표지 이미지 업로드"
+        text="상품 표지 이미지 업로드"
         description={
           <span css={css({ color: color.purple })}>
-            작품 표지 이미지는 모두에게 보여지는 이미지입니다.
+            상품 표지 이미지는 모두에게 보여지는 이미지입니다.
             <br />
             표지 이미지는 A5(148*210) 사이즈로 조절해서 업로드해주세요. 최대
             6장까지 업로드 할 수 있습니다.
             <br />
-            2장 이상의 표지 등록 시 동일한 비율로 작품 수량에 매칭 후 남는
+            2장 이상의 표지 등록 시 동일한 비율로 상품 수량에 매칭 후 남는
             수량은 랜덤하게 매칭됩니다.
           </span>
         }

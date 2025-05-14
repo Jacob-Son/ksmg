@@ -276,7 +276,7 @@ export default function BookReader({
                   );
                 })}
           <p css={CopyrightWarningCSS}>
-            (경고) 해당 작품의 화면 캡처나 복제와 <br />
+            (경고) 해당 상품의 화면 캡처나 복제와 <br />
             시 낭송 녹음과 전송은 <br />
             저작권법에 위배됩니다.
           </p>

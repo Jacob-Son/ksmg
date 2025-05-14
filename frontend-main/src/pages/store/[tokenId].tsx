@@ -27,14 +27,14 @@ import Link from 'next/link';
 import PreviewPlayer from 'src/components/audio/PreviewPlayer';
 
 const commonTabs = [
-  { value: 'details', label: '작품상세' },
+  { value: 'details', label: '상품상세' },
   //TODO
   // { value: 'tx', label: '거래내역' },
   // { value: 'nftDetails', label: 'NFT 세부 정보' },
 ];
 
 const mobileTabs = [
-  { value: 'details', label: '작품상세' },
+  { value: 'details', label: '상품상세' },
   { value: 'info', label: '시 정보' },
   // TODO
   // { value: 'tx', label: '거래내역' },
@@ -75,7 +75,7 @@ export default function StorePage() {
   }, [nft, isNftPending]);
 
   useEffect(() => {
-    console.log("NFT 데이터:", nft); // 👀 콘솔에서 NFT 데이터 확인
+    console.log('NFT 데이터:', nft); // 👀 콘솔에서 NFT 데이터 확인
     if (!nft) return;
     setTotalLikeCount(nft?.totalLikeCount);
     setNftPrice(nft?.price);

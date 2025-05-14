@@ -51,7 +51,7 @@ export default function StudioProducts({
           css({ ...(data.length === 0 && { minHeight: 0 }) }),
         ]}
       >
-        <p css={StudioProductsHeadCSS}>발행한 작품</p>
+        <p css={StudioProductsHeadCSS}>발행한 상품</p>
         {data.length > 0 ? (
           <div css={StudioProductsBodyCSS}>
             {data.map((item) => (
@@ -129,17 +129,17 @@ export default function StudioProducts({
               height={265}
             />
             <p>
-              아직 발행한 작품이 없어요
+              아직 발행한 상품이 없어요
               <br />
-              멋진 작품을 업로드해보세요
+              멋진 상품을 업로드해보세요
             </p>
           </div>
         )}
       </div>
       <Modal
         isShow={showDeleteModal}
-        title="작품을 삭제하시겠습니까?"
-        description="작품 삭제 시, 판매된 작품은 제외하고 남은 모든 재고가 삭제되며, 이 작업은 취소할 수 없습니다."
+        title="상품을 삭제하시겠습니까?"
+        description="상품 삭제 시, 판매된 상품은 제외하고 남은 모든 재고가 삭제되며, 이 작업은 취소할 수 없습니다."
         showLeftButton={false}
         rightText="삭제하기"
         rightButtonColor={color.red.main}

@@ -13,8 +13,8 @@ async function bootstrap() {
     origin: '*',
   };
   app.enableCors(corsOptions);
-  app.use(json({ limit: '50mb' }));
-  app.use(urlencoded({ extended: true, limit: '50mb' }));
+  app.use(json({ limit: '100mb' }));
+  app.use(urlencoded({ extended: true, limit: '100mb' }));
 
   // Swagger 설정
   const config = new DocumentBuilder()

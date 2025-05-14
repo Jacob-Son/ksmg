@@ -33,7 +33,7 @@ export const getServerSideProps = async ({ req, res }) => {
 };
 
 export default function CreateEBookPage() {
-  const title = '작품 등록하기';
+  const title = '상품 등록하기';
   const router = useRouter();
   const { isMobile } = useResponsive();
   const [isComplete, setIsComplete] = React.useState(false);
@@ -66,7 +66,7 @@ export default function CreateEBookPage() {
         router.push('/');
       }
       // if (!user.creatorName) {
-        // router.push('/create-profile');
+      // router.push('/create-profile');
       // }
     }
   }, [status, user]);

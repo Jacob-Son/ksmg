@@ -68,11 +68,11 @@ export default function NFTForm3({ step = 3, totalStep = 5 }: INFTFormProps) {
     <CreateNFTSection
       step={step}
       totalStep={totalStep}
-      title="작품 내용 등록하기"
+      title="상품 내용 등록하기"
       description={
         <>
-          작품 내용이 등록된 후에는 해당 정보를 변경할 수 없습니다.
-          <span>A5 사이즈</span>로 업로드해주세요. 작품 내용은 작품을 보유한
+          상품 내용이 등록된 후에는 해당 정보를 변경할 수 없습니다.
+          <span>A5 사이즈</span>로 업로드해주세요. 상품 내용은 상품을 보유한
           계정에 한해 확인할 수 있습니다. 최대 500개까지 업로드하기
         </>
       }

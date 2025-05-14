@@ -34,8 +34,8 @@ export default function StudioPage() {
   const { studio, refetch } = useStudio(Number(page));
   const { status } = useSession();
   const { user } = useUser();
-  console.log("User Data:", user);
-  console.log("Fetched User:", user);
+  console.log('User Data:', user);
+  console.log('Fetched User:', user);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -53,7 +53,7 @@ export default function StudioPage() {
     // if (!user.creatorName || !user.userProfileUrl) {
     //   router.push('/create-profile');
     // } else {
-      router.push('/studio/create-ebook');
+    router.push('/studio/create-ebook');
     // }
   };
 
@@ -67,7 +67,7 @@ export default function StudioPage() {
           <div>
             <h1 css={PageTitleCSS}>{title}</h1>
             <p css={PageDescriptionCSS}>
-              활동하실 필명과 프로필 이미지를 확인해 주세요.
+              활동하실 판매자명과 프로필 이미지를 확인해 주세요.
             </p>
           </div>
           <Button
@@ -78,7 +78,7 @@ export default function StudioPage() {
               [mq.mobile]: { marginLeft: 0, marginRight: 'auto' },
             })}
           >
-            새 작품 등록하기
+            새 상품 등록하기
           </Button>
         </div>
 

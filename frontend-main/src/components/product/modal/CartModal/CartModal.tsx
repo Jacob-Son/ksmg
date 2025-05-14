@@ -17,7 +17,7 @@ export default function CartModal({
     <AlertModal
       {...{
         [isMobile ? 'title' : 'description']:
-          '선택한 작품이 장바구니에 담겼습니다.',
+          '선택한 상품이 장바구니에 담겼습니다.',
       }}
       isShow={isShow}
       cancelText={'쇼핑 계속하기'}

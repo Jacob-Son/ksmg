@@ -55,7 +55,7 @@ const RecommendationItem = ({
         css={RefereeProfileCSS}
       />
       <div>
-        <p css={RefereeNameCSS}>{item.recommend.author} 추천 작품</p>
+        <p css={RefereeNameCSS}>{item.recommend.author} 추천 상품</p>
         <p css={RefereeDescriptionCSS}>
           {parse(item.recommend.intro.replace(/\n/g, '<br/>'))}
         </p>

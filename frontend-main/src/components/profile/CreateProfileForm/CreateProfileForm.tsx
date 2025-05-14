@@ -62,7 +62,7 @@ export default function CreateProfileForm({
         onClick={() => setShowModal(true)}
         css={SubmitButtonCSS}
       >
-        {isComplete ? '작품 등록 시작하기' : '다음으로 넘어가기'}
+        {isComplete ? '상품 등록 시작하기' : '다음으로 넘어가기'}
       </Button>
 
       <CreateProfileModal

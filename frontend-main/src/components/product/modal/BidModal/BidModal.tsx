@@ -269,7 +269,7 @@ export default function BidModal(props: IBidModalProps) {
     return (
       <AlertModal
         isShow={props.show}
-        description={`죄송합니다.\n현재 해당 작품의 최고 입찰가는\n<span>${addComma(
+        description={`죄송합니다.\n현재 해당 상품의 최고 입찰가는\n<span>${addComma(
           higherBid,
         )}</span>원입니다.\n다시 확인하고 새로운 금액으로\n응찰해 주세요.`}
         confirmText={<span style={{ color: color.purple }}>다시 입찰하기</span>}

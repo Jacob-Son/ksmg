@@ -82,7 +82,7 @@ export default function PayPage() {
   useEffect(() => {
     if (order === undefined) return;
     if (order == null || order.nftSales.length === 0) {
-      alert('주문할 작품이 없습니다.');
+      alert('주문할 상품이 없습니다.');
       router.push('/order/cart');
       return;
     }

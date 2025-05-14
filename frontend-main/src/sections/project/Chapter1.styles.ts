@@ -75,6 +75,10 @@ export const TextCSS = css({
   flex: 1,
   color: '#fff', // ✅ 배경 대비 가독성 향상
   lineHeight: '130%',
+
+  [mq.mobile]: {
+    fontSize: '14px', // 모바일 전용 폰트 크기
+  },
 });
 
 export const ImageColumnCSS = css({

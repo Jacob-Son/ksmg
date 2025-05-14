@@ -21,7 +21,7 @@ import { Bid } from '~/types/auction';
 import useAccount from 'src/hooks/common/useAccount';
 import { useAuthStore } from 'src/stores/auth/auth.store';
 
-const tabs = [{ value: 'details', label: '작품상세' }];
+const tabs = [{ value: 'details', label: '상품상세' }];
 
 export default function AuctionPage() {
   const title = 'Auction Page';
@@ -184,7 +184,7 @@ export default function AuctionPage() {
           )}
         </div>
         {/* <RelatedProducts
-            name="경매 진행 중인 다른 작품"
+            name="경매 진행 중인 다른 상품"
             data={dummyData.related}
           /> */}
         {auction && isMobile && (

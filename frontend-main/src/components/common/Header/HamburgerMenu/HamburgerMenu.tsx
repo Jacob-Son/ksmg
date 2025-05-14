@@ -75,7 +75,7 @@ export default function HamburgerMenu({
       </div>
       <div css={css({ marginTop: 24 })}>
         <Search
-          placeholder="원하는 작품을 검색해보세요"
+          placeholder="원하는 상품을 검색해보세요"
           position="hamburger"
           onClose={handleClickClose}
         />

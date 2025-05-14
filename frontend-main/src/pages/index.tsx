@@ -92,9 +92,9 @@ export default function MainPage() {
               <Image
                 src="/imgs/banner/Sec_01.png" // ✅ 배너 이미지 경로 수정
                 alt="메시지 카드 보내기"
-                width={1440} // 원하는 배너 크기
+                width={2500} // 원하는 배너 크기
                 height={200}
-                layout="cover" // ✅ 원래 비율 유지
+                layout="cover" // ✅
                 css={SmallBannerImageCSS} // ✅ 모바일 대응 스타일 적용
               />
             </a>
@@ -214,26 +214,27 @@ const DividerCSS = css({
 const SmallBannerWrapper = css({
   // marginTop: 40, // ✅ 상품 탭과 간격 조정
   marginBottom: 60, // ✅ 배너 아래쪽 간격 조정
-  padding: '0 24px', // ✅ 좌우 여백 추가
+  padding: '0 0', // ✅ 좌우 여백 추가
   display: 'flex',
   justifyContent: 'center',
-  maxwidth: '1220px',
+  maxWidth: '1920px',
+  width: '100%',
 
   [mq.mobile]: {
-    padding: '100 100 100 100',
+    padding: '0 0',
     marginBottom: 20, // ✅ 모바일에서 하단 간격 줄이기
   },
 });
 
 const SmallBannerImageCSS = css({
-  width: '1440px', // ✅ 가로 너비 꽉 차게
+  width: '100%', // ✅ 가로 너비 꽉 차게
   height: 'auto', // ✅ 높이 자동 조정
-  objectFit: 'contain', // ✅ 기본값 (PC에서는 `cover` 유지)
+  objectFit: 'cover', // ✅ 기본값 (PC에서는 `cover` 유지)
 
   [mq.mobile]: {
-    width: 'auto', // ✅ 가로 너비 꽉 차게
+    width: '100%', // ✅ 가로 너비 꽉 차게
     height: 'auto', // ✅ 높이 자동 조정
-    objectFit: 'contain', // ✅ 모바일에서는 `contain`으로 변경하여 글자가 잘리지 않도록 조정
+    objectFit: 'contain',
   },
 });
 

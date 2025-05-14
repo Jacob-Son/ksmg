@@ -97,7 +97,7 @@ function RecommendCard({
           <Box sx={{ display: "flex", flexDirection: "row", height: 20 }} />
           <Divider />
           <Box sx={{ display: "flex", flexDirection: "row", height: 20 }} />
-          <Typography variant="h4">작가님</Typography>
+          <Typography variant="h4"></Typography>
           <img
             src={recommendInfo.recommend.profileImagePath}
             alt=""

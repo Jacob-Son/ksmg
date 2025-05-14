@@ -145,7 +145,7 @@ export default function CombineCreatePage() {
         {step === 1 ? (
           <>
             <PageHead
-              title={'조합하고 싶은\n작품을 선택해 주세요.'}
+              title={'조합하고 싶은\n상품을 선택해 주세요.'}
               description={'조합 가능한 갯수는 20개입니다.'}
               {...(!isMobile && { button: step1Button })}
             />

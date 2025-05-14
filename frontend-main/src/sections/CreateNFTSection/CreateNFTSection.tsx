@@ -95,7 +95,7 @@ export default function CreateNFTSection(props: ICreateNFTSectionProps) {
           css={NextBtnCSS}
         >
           {props.step === props.totalStep
-            ? '작품 등록하기'
+            ? '상품 등록하기'
             : '다음으로 넘어가기'}
         </Button>
       </div>

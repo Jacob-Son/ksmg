@@ -71,7 +71,7 @@ export default function ResetPasswordModal({
         <p css={ModalTextCSS}>
           비밀번호 재설정이 완료되었습니다.
           <br />
-          다시 작품을 구매해주세요.
+          다시 상품을 구매해주세요.
         </p>
       </Modal>
     );

@@ -63,7 +63,7 @@ function CreateRecommend({
       }
       if (!data?.author) {
         addToast({
-          message: "작가 이름을 적어주세요",
+          message: "이름을 적어주세요",
           type: "error",
         });
         setLoading(false);
@@ -72,7 +72,7 @@ function CreateRecommend({
 
       if (!data?.intro) {
         addToast({
-          message: "작가 소개를 적어주세요",
+          message: "소개를 적어주세요",
           type: "error",
         });
         setLoading(false);
@@ -149,7 +149,7 @@ function CreateRecommend({
         type="string"
         {...register("author")}
       />
-      <FormHelperText>추천 작가 이름을 적어주세요</FormHelperText>
+      <FormHelperText>추천 이유를 적어주세요</FormHelperText>
       <Box sx={{ display: "flex", flexDirection: "row", height: 40 }} />
       <MuiFileInput
         label="profileImagePath"
@@ -159,7 +159,7 @@ function CreateRecommend({
         }}
       />
       <FormHelperText>
-        작가 이미지입니다. 권장크기는 1x1입니다. 최대 5MB까지 업로드 가능합니다.
+        상품 이미지입니다. 권장크기는 1x1입니다. 최대 5MB까지 업로드 가능합니다.
       </FormHelperText>
       {imagesPreview && (
         <>
@@ -194,7 +194,7 @@ function CreateRecommend({
         }}
       />
       <FormHelperText>
-        추천 작가에 대한 설명을 적어주세요. 최대 50자입니다
+        추천 상품에 대한 설명을 적어주세요. 최대 50자입니다
       </FormHelperText>
       <Box sx={{ display: "flex", flexDirection: "row", height: 40 }} />
       <TextField
@@ -242,7 +242,7 @@ function CreateRecommend({
         {...register("tokenId")}
       />
       <FormHelperText>
-        추천하는 작품의 대표 tokenId(#1번)를 적어주세요. 작품을 생성후에
+        추천하는 상품의 대표 tokenId(#1번)를 적어주세요. 상품을 생성후에
         상세페이지를 들어가서 주소창에 store뒤에 있는 숫자인 tokenId를 복사해서
         붙여넣어주세요
       </FormHelperText>

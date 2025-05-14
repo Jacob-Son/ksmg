@@ -44,12 +44,12 @@ export default function NFTForm5({
       <CreateNFTSection
         step={step}
         totalStep={totalStep}
-        title="작품 예시"
+        title="상품 예시"
         description={
           <>
             실제 판매되는 화면 예시입니다.
             <br />
-            작품 등록 후에는 가격 정보 외에 정보 수정이 불가하니
+            상품 등록 후에는 가격 정보 외에 정보 수정이 불가하니
             <br />
             잘못된 정보가 없는지 한 번 더 확인해주세요.
           </>

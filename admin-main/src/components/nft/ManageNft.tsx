@@ -76,7 +76,7 @@ function ManageNft() {
             전송하거나 제거할 NFT의 tokenId를 입력해주세요
           </FormHelperText>
           <FormHelperText>
-            홈페이지에서 작품상세페이지의 주소 뒤에 있는 숫자입니다. ex)
+            홈페이지에서 상품상세페이지의 주소 뒤에 있는 숫자입니다. ex)
             https://pickapen.io/store/10 에서 10 부분이 tokenId가 됩니다.
           </FormHelperText>
           <Box sx={{ display: "flex", flexDirection: "row", height: 20 }} />

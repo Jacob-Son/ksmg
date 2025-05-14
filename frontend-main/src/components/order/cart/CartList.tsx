@@ -52,8 +52,8 @@ export interface ICartListProps {
 }
 
 const cartNotice = [
-  // '장바구니에 작품은 최대 100개까지 담을 수 있습니다.',
-  // '장바구니에 담긴 작품은 최대 30일간 보관후 삭제됩니다.',
+  // '장바구니에 상품은 최대 100개까지 담을 수 있습니다.',
+  // '장바구니에 담긴 상품은 최대 30일간 보관후 삭제됩니다.',
 ];
 
 export default function CartList(props: ICartListProps | IOrderListProps) {
@@ -99,7 +99,7 @@ export default function CartList(props: ICartListProps | IOrderListProps) {
       props.openAuthenticateModal();
     } else {
       if (!address) return alert('로그인이 필요합니다.');
-      if (checkedData.length === 0) return alert('주문할 작품을 선택해주세요.');
+      if (checkedData.length === 0) return alert('주문할 상품을 선택해주세요.');
       const saleIds = checkedData.map((item) => item.nftSaleId);
       const res = await createOrder(address, saleIds);
       router.push(`/order/pay/${res.order.orderId}`);
@@ -125,7 +125,7 @@ export default function CartList(props: ICartListProps | IOrderListProps) {
           {props.type === 'cart' && (
             <Check checked={isAllChecked} onChange={props.onClickAllCheck} />
           )}
-          <p>전체작품 ({checkedData.length})</p>
+          <p>전체상품 ({checkedData.length})</p>
         </div>
         <div css={InfoFlexCSS}>
           <div css={CartItemSectionCSS}>
@@ -148,7 +148,7 @@ export default function CartList(props: ICartListProps | IOrderListProps) {
           <div css={PriceSectionCSS}>
             {!isMobile && <p css={SectionTitleCSS}>주문 금액</p>}
             <div css={[PriceRowCSS, TotalPriceCSS]}>
-              <p>총 작품금액</p>
+              <p>총 상품금액</p>
               <p>
                 <span>{totalPrice}</span>
                 {isMobile && ' '}원
@@ -223,7 +223,7 @@ export default function CartList(props: ICartListProps | IOrderListProps) {
                 css={OrderButtonCSS}
               >
                 {props.type === 'cart'
-                  ? '선택작품 주문하기'
+                  ? '선택상품 주문하기'
                   : `${totalPrice}원 결제하기`}
               </Button>
             )}
@@ -316,7 +316,7 @@ export default function CartList(props: ICartListProps | IOrderListProps) {
             ]}
           >
             {props.type === 'cart'
-              ? '선택작품 주문하기'
+              ? '선택상품 주문하기'
               : `${totalPrice}원 결제하기`}
           </Button>
         </div>

@@ -18,7 +18,7 @@ function ManageNftCreateUnit() {
   return (
     <>
       <Typography variant="body1">
-        작품 단위로 가리거나 제거할 때 사용합니다.
+        상품 단위로 가리거나 제거할 때 사용합니다.
       </Typography>
       <Box sx={{ display: "flex", flexDirection: "row", height: 40 }} />
       <Grid container spacing={2}>

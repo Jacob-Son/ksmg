@@ -9,7 +9,7 @@ function NftInfo({ nft }: { nft: Nft }) {
         NFT 정보
       </Typography>
       <Typography variant="body2" sx={{ marginBottom: "20px" }}>
-        다음작품이 맞는지 확인해주세요
+        다음상품이 맞는지 확인해주세요
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
         <img src={nft.nftImagePath} alt="" width={200} />
@@ -30,7 +30,7 @@ function NftInfo({ nft }: { nft: Nft }) {
         <strong>Creator:</strong> {nft.creatorAddress}
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        <strong>작가 수수료:</strong> {nft.royalty}%
+        <strong>상품 수수료:</strong> {nft.royalty}%
       </Typography>
     </div>
   );

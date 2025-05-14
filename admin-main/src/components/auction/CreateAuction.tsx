@@ -230,7 +230,7 @@ function CreateAuction({
         type="number"
         {...register("estimatedPrice")}
       />
-      <FormHelperText>작품의 추정가입니다, 숫자로 입력하세요</FormHelperText>
+      <FormHelperText>상품의 추정가입니다, 숫자로 입력하세요</FormHelperText>
       <Box sx={{ display: "flex", flexDirection: "row", height: 40 }} />
       <DateTimePicker
         label="Start Time"

@@ -40,11 +40,11 @@ export default function NFTForm4({ step = 4, totalStep = 5 }: INFTFormProps) {
     <CreateNFTSection
       step={step}
       totalStep={totalStep}
-      title="작품 가격 등록하기"
-      description="작품의 가격과 2차 판매 수수료를 등록해주세요."
+      title="상품 가격 등록하기"
+      description="상품의 가격과 2차 판매 수수료를 등록해주세요."
       nextDisabled={!isFormValid}
     >
-      <FormText text="작품 가격" subText="(원 단위)" required />
+      <FormText text="상품 가격" subText="(원 단위)" required />
       <TextField
         type="number"
         value={price}
@@ -54,16 +54,16 @@ export default function NFTForm4({ step = 4, totalStep = 5 }: INFTFormProps) {
       />
 
       <FormText
-        text="2차 판매 작가 수수료"
+        text="2차 판매 수수료"
         subText="(%)"
-        description="등록하신 작품의 2차 판매 발생 시 작가님께 돌아갈 수수료를 입력해주세요. "
+        description="등록하신 상품의 2차 판매 발생 시 돌아갈 수수료를 입력해주세요. "
         required
         css={FormTitleCSS}
       />
       <TextField
         type="number"
         value={royalty}
-        placeholder="2차 판매 작가 수수료는 최대 15%까지 가능합니다."
+        placeholder="2차 판매 수수료는 최대 15%까지 가능합니다."
         min={0}
         max={15}
         onChange={handleChangeRoyalty}

@@ -28,7 +28,7 @@ export class HomeController {
   @ApiTags('home')
   @ApiOperation({
     summary: 'Get hot',
-    description: '인기 급상승 작품들을 가져옵니다.',
+    description: '인기 급상승 상품들을 가져옵니다.',
   })
   async getHot(): Promise<ApiResponseType<SimpleNftType[]>> {
     const res = await this.homeService.getHot();
@@ -43,7 +43,7 @@ export class HomeController {
   @ApiTags('home')
   @ApiOperation({
     summary: 'Get recommend',
-    description: '추천 작품들을 가져옵니다.',
+    description: '추천 상품들을 가져옵니다.',
   })
   async getRecommend(): Promise<
     ApiResponseType<
@@ -96,7 +96,7 @@ export class HomeController {
   @ApiTags('home')
   @ApiOperation({
     summary: 'Get best',
-    description: '베스트 작품들을 가져옵니다.',
+    description: '베스트 상품들을 가져옵니다.',
   })
   async getBest(): Promise<ApiResponseType<SimpleNftType[]>> {
     const res = await this.homeService.getBest();
@@ -133,7 +133,7 @@ export class HomeController {
   @ApiTags('home')
   @ApiOperation({
     summary: 'Get recent-sale',
-    description: '최근 판매된 작품들을 가져옵니다.',
+    description: '최근 판매된 상품들을 가져옵니다.',
   })
   async getRecentSale(): Promise<ApiResponseType<SimpleNftType[]>> {
     const res = await this.homeService.getRecentSale();

@@ -107,7 +107,7 @@ const routes = [
     icon: <ViewCarouselIcon />,
   },
   {
-    name: "추천 작품",
+    name: "추천 상품",
     path: Routes.RECOMMEND,
     icon: <Recommend />,
   },

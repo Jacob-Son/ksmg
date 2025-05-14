@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { color } from 'src/styles/colors';
+import { mq } from 'src/styles/mediaQuery';
 
 export const NoticesColumnCSS = css({
   marginTop: 12,
@@ -25,6 +26,16 @@ export const NoticeItemCSS = css({
     borderRadius: 3,
     background: color.skeleton,
     // marginRight: 20,
+  },
+  [mq.mobile]: {
+    flexDirection: 'column',
+
+    '& img': {
+      width: '100%',
+      height: 'auto',
+      maxWidth: '100%',
+      objectFit: 'cover',
+    },
   },
 });
 

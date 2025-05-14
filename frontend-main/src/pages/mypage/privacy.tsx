@@ -245,9 +245,9 @@ export default function PrivacyPage() {
           {/* <TextField disabled css={css({ marginTop: 10 })} value={email} /> */}
         </div>
         <div css={FormWrapperCSS}>
-          <p css={FormNameCSS}>필명</p>
+          <p css={FormNameCSS}>판매자명</p>
           <TextField
-            placeholder="필명을 입력해주세요"
+            placeholder="판매자명을 입력해주세요"
             css={css({ marginTop: 10 })}
             value={creatorName}
             onChange={(e) => setCreatorName(e.target.value)}

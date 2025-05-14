@@ -31,7 +31,7 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
   const [isInfoOpen, setIsInfoOpen] = React.useState(false);
 
   const categoryOptions = categoryData
-    .filter((x) => x.name !== '전체 작품')
+    .filter((x) => x.name !== '전체 상품')
     .map((category) => ({
       label: category.name,
       value: category.name,
@@ -40,7 +40,8 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
     () =>
       categoryData
         .find((x) => x.name === category)
-        ?.children?.filter((x) => x !== '전체').map((item) => ({
+        ?.children?.filter((x) => x !== '전체')
+        .map((item) => ({
           label: item,
           value: item,
         })),
@@ -62,14 +63,14 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
     <CreateNFTSection
       step={step}
       totalStep={totalStep}
-      title="작품 카테고리 설정"
-      description="등록하실 작품에 맞는 카테고리를 골라주세요."
+      title="상품 카테고리 설정"
+      description="등록하실 상품에 맞는 카테고리를 골라주세요."
       nextDisabled={!isFormValid}
     >
-      <FormText text="작품 카테고리를 골라주세요." required />
+      <FormText text="상품 카테고리를 골라주세요." required />
       <Select
         value={category}
-        placeholder="작품 카테고리 선택"
+        placeholder="상품 카테고리 선택"
         options={categoryOptions}
         onChange={(value) => setCategory(value)}
         css={TextFieldCSS}
@@ -77,13 +78,13 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
       {category === '육필 시' && (
         <>
           <FormText
-            text="작품 주제를 골라주세요."
+            text="상품 주제를 골라주세요."
             required
             css={FormTitleCSS}
           />
           <Select
             value={theme}
-            placeholder="작품 주제 선택"
+            placeholder="상품 주제 선택"
             options={themeOptions}
             onChange={(value) => setTheme(value)}
             css={TextFieldCSS}
@@ -91,8 +92,8 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
         </>
       )}
       <FormText
-        text="작품 특성 설정"
-        description="특성은 아이템의 속성을 설명합니다. 작품 설명 내에 표시됩니다"
+        text="상품 특성 설정"
+        description="특성은 아이템의 속성을 설명합니다. 상품 설명 내에 표시됩니다"
         endAdornment={
           <button
             type="button"
@@ -166,10 +167,10 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
       )}
       <InstructionModal
         open={isInfoOpen}
-        title="작품 특성 설명"
+        title="상품 특성 설명"
         description={
           <>
-            작품 특성이란 작품의 속성을 설명하는 것으로, 작품 설명 내에
+            상품 특성이란 상품의 속성을 설명하는 것으로, 상품 설명 내에
             표시됩니다.
           </>
         }

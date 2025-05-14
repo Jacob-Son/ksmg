@@ -62,7 +62,7 @@ export default function ItemSelect({
             color: '#fff',
           })}
         >
-          조합 가능 작품
+          조합 가능 상품
         </p>
         <p
           css={css({

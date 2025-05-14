@@ -12,6 +12,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import { IEvent } from '~/types/event';
+import { mq } from 'src/styles/mediaQuery';
 
 interface INoticesProps {
   name: string;
@@ -25,7 +26,16 @@ export default function Notices({
   data,
 }: INoticesProps): React.ReactElement {
   return (
-    <div css={css({ flex: 1, width: '100%' })}>
+    <div
+      css={css({
+        flex: 1,
+        width: '100%',
+        [mq.mobile]: {
+          width: '100%',
+          maxWidth: '498px',
+        },
+      })}
+    >
       <TitleRow name={name} css={css({ padding: '12px 0' })} />
       <div css={NoticesColumnCSS}>
         {data.map((notice) => (
@@ -40,15 +50,6 @@ export default function Notices({
               width={700}
               height={200}
             />
-            {/* <div>
-              <div css={css({ display: 'flex', alignItems: 'center', gap: 8 })}>
-                <p css={NoticeItemTitleCSS}>{notice.title}</p>
-                <p css={NoticeItemDateCSS}>
-                  {dayjs(notice.createdAt).format('YYYY.MM.DD')}
-                </p>
-              </div>
-              <p css={NoticeItemDescriptionCSS}>{notice.description}</p>
-            </div> */}
           </Link>
         ))}
       </div>

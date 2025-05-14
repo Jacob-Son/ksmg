@@ -92,7 +92,7 @@ export default function AddressForm({
             <DaumPostcodeEmbed
               onComplete={handleCompletePostcode}
               onClose={() => setIsPostcodeOpen(false)}
-              style={{ width: '100vw', height: '100vh' }}
+              style={{ width: '100%', height: '100%' }}
             />
           </div>
         </ModalPortal>

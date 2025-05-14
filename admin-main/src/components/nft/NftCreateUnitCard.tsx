@@ -46,10 +46,10 @@ function NftCreateUnitCard({
             주제: {nftCreateUnit.theme ? nftCreateUnit.theme : "없음"}
           </Typography>
           <Typography variant="body2">
-            작가주소: {nftCreateUnit.creatorAddress}
+            상품주소: {nftCreateUnit.creatorAddress}
           </Typography>
           <Typography variant="body2">
-            작가 수수료: {nftCreateUnit.creatorFee}
+            상품 수수료: {nftCreateUnit.creatorFee}
           </Typography>
           <Typography variant="body2">
             가리기 ( 켜면 보여지고 끄면 보여지지 않습니다 )

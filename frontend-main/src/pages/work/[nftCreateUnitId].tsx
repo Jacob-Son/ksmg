@@ -49,7 +49,7 @@ export default function CategoryPage() {
           <>
             해당하는
             <br />
-            작품이 없습니다.
+            상품이 없습니다.
             <br />
             다른 책을 찾아보는건 어떨까요?
           </>

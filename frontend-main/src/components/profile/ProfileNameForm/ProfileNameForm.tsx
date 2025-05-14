@@ -54,17 +54,17 @@ export default function ProfileNameForm({
   };
   return (
     <div css={FormContainerCSS}>
-      <FormText text="필명" required />
+      <FormText text="판매자명" required />
       <p css={FormDescriptionCSS}>12자 이내로 입력해주세요</p>
       <div css={InputFlexContainerCSS}>
         <TextField
           type="text"
-          placeholder="작가 필명을 입력해주세요"
+          placeholder="입력해주세요"
           defaultValue={defaultName}
           onKeyDown={handleKeyDown}
           error={
             isNicknameValid === false
-              ? '다른 사용자가 사용하는 필명입니다.'
+              ? '다른 사용자가 사용하는 판매자명입니다.'
               : undefined
           }
         />

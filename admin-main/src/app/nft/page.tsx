@@ -14,7 +14,7 @@ function NFT() {
     <div>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs aria-label="NFT tab" value={tabIndex}>
-          <Tab label="작품관리" value={0} onClick={() => setTabIndex(0)} />
+          <Tab label="상품관리" value={0} onClick={() => setTabIndex(0)} />
           <Tab label="Nft 관리" value={1} onClick={() => setTabIndex(1)} />
         </Tabs>
       </Box>

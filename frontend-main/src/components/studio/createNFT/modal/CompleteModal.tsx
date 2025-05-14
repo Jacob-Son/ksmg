@@ -66,7 +66,7 @@ export default function CompleteModal({
           <p css={ModalTitleCSS}>
             축하합니다 🎉
             <br />
-            작품이 완성되었습니다
+            상품이 완성되었습니다
           </p>
           <div
             css={css({
