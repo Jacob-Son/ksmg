@@ -31,7 +31,7 @@ export default function NFTForm1({ step = 1, totalStep = 5 }: INFTFormProps) {
   const [isInfoOpen, setIsInfoOpen] = React.useState(false);
 
   const categoryOptions = categoryData
-    .filter((x) => x.name !== '전체 상품')
+    .filter((x) => x.name !== '전체 작품')
     .map((category) => ({
       label: category.name,
       value: category.name,
