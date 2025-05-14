@@ -67,15 +67,28 @@ export default function StorePage() {
   //   }
   // }, [nft]);
 
-  useEffect(() => {
-    if (nft === null && !isNftPending) {
-      console.warn('🚨 NFT 데이터가 없음! 홈으로 이동:', nft);
-      router.push('/');
-    }
-  }, [nft, isNftPending]);
+  // useEffect(() => {
+  //   if (nft === null && !isNftPending) {
+  //     console.warn('🚨 NFT 데이터가 없음! 홈으로 이동:', nft);
+  //     router.push('/');
+  //   }
+  // }, [nft, isNftPending]);
+
+  // useEffect(() => {
+  //   console.log('NFT 데이터:', nft); // 👀 콘솔에서 NFT 데이터 확인
+  //   if (!nft) return;
+  //   setTotalLikeCount(nft?.totalLikeCount);
+  //   setNftPrice(nft?.price);
+  //   nftApi.addViewCount(collectionAddress, String(tokenId));
+  // }, [nft]);
 
   useEffect(() => {
-    console.log('NFT 데이터:', nft); // 👀 콘솔에서 NFT 데이터 확인
+    if (nft === null) {
+      router.push('/');
+    }
+  }, [nft]);
+
+  useEffect(() => {
     if (!nft) return;
     setTotalLikeCount(nft?.totalLikeCount);
     setNftPrice(nft?.price);
