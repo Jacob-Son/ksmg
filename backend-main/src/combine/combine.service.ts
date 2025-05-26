@@ -81,7 +81,7 @@ export class CombineService {
           NOT: {
             creatorAddress: userAddress,
           },
-          category: '육필 시',
+          category: '전체 상품',
         },
       });
 

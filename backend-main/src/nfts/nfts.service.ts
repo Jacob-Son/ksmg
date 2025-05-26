@@ -1152,7 +1152,7 @@ export class NftsService {
         };
       }
 
-      if (nft.category === '육필 시 노트') {
+      if (nft.category === '전체 상품') {
         return {
           type: BuyingDeliveryType.NOTE,
           isDeliverRequired: true,
