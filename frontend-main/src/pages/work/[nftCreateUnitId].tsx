@@ -64,6 +64,7 @@ export default function CategoryPage() {
               category={x?.category ? (x?.category as string) : ''}
               {...x}
               soldout={x.price === null}
+              price={x.price ?? 0} // 👈 price가 없으면 0으로 대체
             />
           ))}
         </div>
