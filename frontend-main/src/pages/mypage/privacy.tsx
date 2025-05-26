@@ -241,18 +241,18 @@ export default function PrivacyPage() {
           />
         </div>
         <div css={FormWrapperCSS}>
-          <p css={FormNameCSS}>이메일</p>
+          {/* <p css={FormNameCSS}>이메일</p> */}
           {/* <TextField disabled css={css({ marginTop: 10 })} value={email} /> */}
         </div>
-        <div css={FormWrapperCSS}>
-          <p css={FormNameCSS}>판매자명</p>
-          <TextField
-            placeholder="판매자명을 입력해주세요"
-            css={css({ marginTop: 10 })}
-            value={creatorName}
-            onChange={(e) => setCreatorName(e.target.value)}
-          />
-        </div>
+        {/* <div css={FormWrapperCSS}> */}
+        {/* <p css={FormNameCSS}>판매자명</p> */}
+        <TextField
+          placeholder="판매자명을 입력해주세요"
+          css={css({ marginTop: 10 })}
+          value={creatorName}
+          onChange={(e) => setCreatorName(e.target.value)}
+        />
+        {/* </div> */}
         <div css={FormWrapperCSS}>
           <p css={FormNameCSS}>휴대폰번호</p>
           <div
