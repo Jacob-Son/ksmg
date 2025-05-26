@@ -19,7 +19,8 @@ export default function CategoryTabs({ products }) {
     const newFilteredProducts = products
       .filter(
         (product) =>
-          product.category?.toLowerCase() === activeCategory.toLowerCase(),
+          // product.category?.toLowerCase() === activeCategory.toLowerCase(),
+          product.theme?.toLowerCase() === activeCategory.toLowerCase(),
       )
       .filter(
         (product, index, self) =>
