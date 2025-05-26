@@ -230,14 +230,6 @@ export class AuthService {
           // shippingInfo: {
           //   create: shippingInfo,
           // },
-          shippingInfo: {
-            create: {
-              name: shippingInfo.name ?? '이름없음',
-              postCode: shippingInfo.postCode ?? '',
-              mainAddress: shippingInfo.mainAddress ?? '',
-              detailAddress: shippingInfo.detailAddress ?? '',
-            },
-          },
         },
       });
       return true;
