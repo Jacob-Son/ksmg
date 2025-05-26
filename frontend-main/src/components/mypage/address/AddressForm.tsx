@@ -89,6 +89,7 @@ export default function AddressForm({
       {isPostcodeOpen && (
         <ModalPortal>
           <div css={PostcodePopupCSS}>
+            <p>포스트코드 컴포넌트 등장</p> {/* 👈 이거 뜨는지 먼저 체크 */}
             <DaumPostcodeEmbed
               onComplete={handleCompletePostcode}
               onClose={() => setIsPostcodeOpen(false)}
@@ -134,9 +135,21 @@ export const ButtonCSS = ({ theme }: { theme: 'normal' | 'dark' }) =>
     }),
   });
 
+// export const PostcodePopupCSS = css({
+//   position: 'fixed',
+//   top: 0,
+//   left: 0,
+//   zIndex: 10,
+// });
 export const PostcodePopupCSS = css({
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 10,
+  width: '100vw',
+  height: '100vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', // 모달 배경
+  zIndex: 9999,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
