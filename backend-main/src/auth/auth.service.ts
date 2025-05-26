@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { LoginType, ShippingInfo } from '@prisma/client';
+import { LoginType } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { BizService } from 'src/biz/biz.service';
 import { decryptText, encryptText } from 'src/common/utils/crypto';
@@ -194,15 +194,54 @@ export class AuthService {
     }
   }
 
+  // async makeAddress(
+  //   email: string,
+  //   loginType: LoginType,
+  //   password: string,
+  //   // phoneNumber: string,
+  //   shippingInfo: Pick<
+  //     ShippingInfo,
+  //     'name' | 'postCode' | 'mainAddress' | 'detailAddress'
+  //   >,
+  //   token: string,
+  // ) {
+  //   try {
+  //     const existingUser = await this.prisma.user.findUnique({
+  //       where: { email_loginType: { email, loginType } },
+  //       select: { phoneNumber: true },
+  //     });
+  //     const userAddress = await this.walletService.registerWallet(
+  //       token,
+  //       password,
+  //       existingUser?.phoneNumber ?? null,
+  //     );
+  //     // const _phoneNumber = (await encryptText(this.prisma, phoneNumber))
+  //     //   .content;
+  //     await this.prisma.user.update({
+  //       where: {
+  //         email_loginType: {
+  //           email,
+  //           loginType,
+  //         },
+  //       },
+  //       data: {
+  //         userAddress,
+  //         // phoneNumber: _phoneNumber,
+  //         // shippingInfo: {
+  //         //   create: shippingInfo,
+  //         // },
+  //       },
+  //     });
+  //     return true;
+  //   } catch (e) {
+  //     console.log(e);
+  //     return false;
+  //   }
+  // }
   async makeAddress(
     email: string,
     loginType: LoginType,
     password: string,
-    // phoneNumber: string,
-    shippingInfo: Pick<
-      ShippingInfo,
-      'name' | 'postCode' | 'mainAddress' | 'detailAddress'
-    >,
     token: string,
   ) {
     try {
@@ -210,13 +249,13 @@ export class AuthService {
         where: { email_loginType: { email, loginType } },
         select: { phoneNumber: true },
       });
+
       const userAddress = await this.walletService.registerWallet(
         token,
         password,
         existingUser?.phoneNumber ?? null,
       );
-      // const _phoneNumber = (await encryptText(this.prisma, phoneNumber))
-      //   .content;
+
       await this.prisma.user.update({
         where: {
           email_loginType: {
@@ -226,19 +265,15 @@ export class AuthService {
         },
         data: {
           userAddress,
-          // phoneNumber: _phoneNumber,
-          // shippingInfo: {
-          //   create: shippingInfo,
-          // },
         },
       });
+
       return true;
     } catch (e) {
       console.log(e);
       return false;
     }
   }
-
   async resetWalletPassword(password: string, token: string) {
     try {
       await this.walletService.resetWalletPassword(token, password);

@@ -29,7 +29,7 @@ export type NftAttribute = {
 export type GetNftResponseData = Nft & {
   nftAttributes: NftAttribute[];
   totalLikeCount: number;
-  nftSaleId: number;
+  nftSaleId?: number;
   creatorName: string;
   totalNftCount: number;
   preAudioPath: string;
@@ -53,7 +53,7 @@ export type Nft = {
   hide: boolean;
   type: NftType;
 
-  price: number;
+  price?: number;
   status: NftStatus;
 
   createdAt: Date;
@@ -77,6 +77,6 @@ export type SimpleNftType = {
   name: string;
   nftImagePath: string;
 
-  price: number | null;
+  price?: number | null;
   status: NftStatus;
 };

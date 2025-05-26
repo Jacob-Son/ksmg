@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { LoginType, ShippingInfo, UserRole } from '@prisma/client';
+import { LoginType, UserRole } from '@prisma/client';
 import { Roles } from 'src/roles/roles.decorator';
 import { RolesGuard } from 'src/roles/roles.guard';
 
@@ -73,6 +73,60 @@ export class AuthController {
     };
   }
 
+  // @Patch('/make-wallet')
+  // @ApiTags('auth')
+  // @ApiOperation({
+  //   summary: '지갑 주소 생성',
+  //   description: '지갑 주소를 생성합니다.',
+  // })
+  // @Roles(UserRole.ADMIN, UserRole.CREATOR, UserRole.USER)
+  // async makeAddress(
+  //   @Headers('authorization') authorization: string,
+  //   @Body('password') password: string,
+  //   // @Body('phoneNumber') phoneNumber: string,
+  //   @Body('shippingInfo')
+  //   shippingInfo: Pick<
+  //     ShippingInfo,
+  //     'name' | 'postCode' | 'mainAddress' | 'detailAddress'
+  //   >,
+  // ) {
+  //   let user: {
+  //     name: string;
+  //     email: string;
+  //     loginType: LoginType;
+  //     profileImageUrl: string;
+  //   };
+  //   try {
+  //     user = await this.authService.getUser(authorization);
+  //   } catch (e) {
+  //     console.log(e);
+  //     return {
+  //       success: false,
+  //       error: '로그인에 실패했습니다.',
+  //       data: null,
+  //     };
+  //   }
+  //   const result = await this.authService.makeAddress(
+  //     user.email,
+  //     user.loginType,
+  //     password,
+  //     // phoneNumber,
+  //     shippingInfo,
+  //     authorization,
+  //   );
+  //   if (!result) {
+  //     return {
+  //       success: false,
+  //       error: '지갑 주소 생성에 실패했습니다.',
+  //       data: null,
+  //     };
+  //   }
+  //   return {
+  //     success: true,
+  //     error: null,
+  //     data: null,
+  //   };
+  // }
   @Patch('/make-wallet')
   @ApiTags('auth')
   @ApiOperation({
@@ -83,12 +137,6 @@ export class AuthController {
   async makeAddress(
     @Headers('authorization') authorization: string,
     @Body('password') password: string,
-    // @Body('phoneNumber') phoneNumber: string,
-    @Body('shippingInfo')
-    shippingInfo: Pick<
-      ShippingInfo,
-      'name' | 'postCode' | 'mainAddress' | 'detailAddress'
-    >,
   ) {
     let user: {
       name: string;
@@ -106,14 +154,14 @@ export class AuthController {
         data: null,
       };
     }
+
     const result = await this.authService.makeAddress(
       user.email,
       user.loginType,
       password,
-      // phoneNumber,
-      shippingInfo,
       authorization,
     );
+
     if (!result) {
       return {
         success: false,
@@ -121,13 +169,13 @@ export class AuthController {
         data: null,
       };
     }
+
     return {
       success: true,
       error: null,
       data: null,
     };
   }
-
   @Patch('/reset-wallet-password')
   @ApiTags('auth')
   @ApiOperation({

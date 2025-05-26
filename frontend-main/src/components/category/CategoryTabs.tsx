@@ -15,23 +15,29 @@ export default function CategoryTabs({ products }) {
 
   useEffect(() => {
     setFilteredProducts([]); // ✅ 이전 데이터 초기화
-  
+
     const newFilteredProducts = products
       .filter(
         (product) =>
-          product.category?.toLowerCase() === activeCategory.toLowerCase()
+          product.category?.toLowerCase() === activeCategory.toLowerCase(),
       )
-      .filter((product, index, self) => 
-        index === self.findIndex((p) => p.nftId === product.nftId) // ✅ 중복 제거
+      .filter(
+        (product, index, self) =>
+          index === self.findIndex((p) => p.nftId === product.nftId), // ✅ 중복 제거
       );
-  
-    console.log("Filtered Products for", activeCategory, ":", newFilteredProducts);
-  
+
+    console.log(
+      'Filtered Products for',
+      activeCategory,
+      ':',
+      newFilteredProducts,
+    );
+
     setFilteredProducts([...newFilteredProducts]); // ✅ 새로운 데이터 설정 (초기화 후 할당)
   }, [activeCategory, products]);
 
-  console.log("Active Category:", activeCategory);
-  console.log("Filtered Products:", filteredProducts);
+  console.log('Active Category:', activeCategory);
+  console.log('Filtered Products:', filteredProducts);
 
   return (
     <div css={containerStyle}>
@@ -79,7 +85,7 @@ const tabContainer = css({
   gap: '20px',
   borderBottom: '2px solid #ddd',
   paddingBottom: '20px',
-  marginBottom: '20px'
+  marginBottom: '20px',
 });
 
 const tabButton = css({

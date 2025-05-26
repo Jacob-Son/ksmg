@@ -3,7 +3,7 @@ import { array, number, object, string } from 'yup';
 export const createNftForm1Schema = object({
   category: string().required(),
   theme: string().when('category', {
-    is: (category) => category === '육필 시',
+    is: (category) => category === '전체 상품',
     then: (s) => s.required(),
     otherwise: (s) => s.nullable(),
   }),
