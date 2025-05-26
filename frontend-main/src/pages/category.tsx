@@ -20,7 +20,6 @@ export const categoryData = [
     name: '전체 상품',
     children: ['전체', '건강기능식품', '간편식품', '커피/음료'],
   },
-
 ];
 
 export default function CategoryPage() {
@@ -110,6 +109,7 @@ export default function CategoryPage() {
             key={`category-${category}-theme-${theme}-nft-${x.tokenId}`}
             category={category as string}
             {...x}
+            price={x.price ?? 0} // 👈 price가 없으면 0으로 대체
           />
         ))}
       </div>
