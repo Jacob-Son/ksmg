@@ -1089,9 +1089,10 @@ export class NftsService {
     }
   }
 
+  // 250528 수정
   async findLowestPriceNft(nftCreateUnitId: number): Promise<Nft | null> {
     try {
-      const nft = await this.prisma.nftSale.findFirst({
+      const saleNft = await this.prisma.nftSale.findFirst({
         where: {
           nft: {
             nftCreateUnitId,
@@ -1105,22 +1106,57 @@ export class NftsService {
           nft: true,
         },
       });
-      if (!nft) {
-        const nft = await this.prisma.nft.findFirst({
-          where: {
-            nftCreateUnitId,
-          },
-          orderBy: {
-            tokenId: 'asc',
-          },
-        });
-        return nft;
-      }
-      return nft.nft;
+
+      // 판매중인 NFT가 있으면 그걸 반환
+      if (saleNft) return saleNft.nft;
+
+      // 없으면 아무거나 보여줌
+      const anyNft = await this.prisma.nft.findFirst({
+        where: {
+          nftCreateUnitId,
+        },
+        orderBy: {
+          tokenId: 'asc',
+        },
+      });
+      return anyNft;
     } catch (e) {
+      console.log(e);
       return null;
     }
   }
+  // async findLowestPriceNft(nftCreateUnitId: number): Promise<Nft | null> {
+  //   try {
+  //     const nft = await this.prisma.nftSale.findFirst({
+  //       where: {
+  //         nft: {
+  //           nftCreateUnitId,
+  //         },
+  //         status: SaleStatus.ON_SALE,
+  //       },
+  //       orderBy: {
+  //         price: 'asc',
+  //       },
+  //       select: {
+  //         nft: true,
+  //       },
+  //     });
+  //     if (!nft) {
+  //       const nft = await this.prisma.nft.findFirst({
+  //         where: {
+  //           nftCreateUnitId,
+  //         },
+  //         orderBy: {
+  //           tokenId: 'asc',
+  //         },
+  //       });
+  //       return nft;
+  //     }
+  //     return nft.nft;
+  //   } catch (e) {
+  //     return null;
+  //   }
+  // }
 
   async checkDeliverRequiredNft(
     collectionAddress: string,
